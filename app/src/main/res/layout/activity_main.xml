@@ -24,7 +24,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintRight_toRightOf="@id/ButtonLayout" android:layout_marginStart="10dp">
             <ImageButton
-                    android:layout_width="40dp"
+                    android:layout_width="38dp"
                     android:layout_height="38dp"
                     android:scaleType="centerCrop"
                     android:adjustViewBounds="true"
