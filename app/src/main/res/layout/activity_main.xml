@@ -6,162 +6,291 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="0dp"
-        android:background="@drawable/gradientBackground"
->
+        android:background="@drawable/gradient_background" android:id="@+id/backgroundLayout">
+
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="80dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="30dp"
-            android:id="@+id/buttonLayout"
-            android:hapticFeedbackEnabled="false">
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="50dp" android:id="@+id/mainLayout">
 
         <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/sumsLayout"
-                app:layout_constraintTop_toTopOf="@id/buttonLayout"
-                app:layout_constraintBottom_toBottomOf="@id/buttonLayout"
-                app:layout_constraintLeft_toLeftOf="@id/buttonLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintRight_toRightOf="@id/buttonLayout"
-                android:layout_marginStart="10dp">
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="@id/mainLayout"
+                app:layout_constraintTop_toTopOf="@id/mainLayout"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintStart_toStartOf="@id/mainLayout"
+                android:layout_marginStart="8dp"
+                android:id="@+id/toplaneLayout">
+            <TextView
+                    android:text="@string/ready"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/toplane_status1"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white" android:layout_marginStart="10dp"/>
             <ImageButton
-                    android:layout_width="38dp"
-                    android:layout_height="38dp"
+                    android:layout_width="35dp"
+                    android:layout_height="36dp"
                     android:scaleType="centerCrop"
                     android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/exhaustCircle"
-                    android:id="@+id/igniteButton"
-                    android:contentDescription="@string/main_button"
+                    app:srcCompat="@drawable/teleport"
+                    android:id="@+id/toplane_button1"
+                    tools:ignore="ContentDescription"
                     android:padding="0dp"
                     android:layout_marginEnd="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:contextClickable="false"
+                    android:contextClickable="false" android:layout_marginStart="30dp"/>
+            <TextView
+                    android:text="@string/ready"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/toplane_status2"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
                     android:layout_marginStart="50dp"/>
             <ImageButton
-                    android:layout_width="38dp"
-                    android:layout_height="38dp"
+                    android:layout_width="35dp"
+                    android:layout_height="36dp"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/flashCircle"
                     android:adjustViewBounds="true"
-                    android:id="@+id/flashButton"
-                    android:contentDescription="@string/main_button"
-                    android:layout_marginEnd="10dp"
+                    app:srcCompat="@drawable/flash"
+                    android:id="@+id/toplane_button2"
+                    tools:ignore="ContentDescription"
                     android:padding="0dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="50dp"/>
-            <ImageButton
-                    android:layout_width="38dp"
-                    android:layout_height="38dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/teleportCircle"
-                    android:adjustViewBounds="true"
-                    android:id="@+id/teleButton"
-                    android:contentDescription="@string/main_button"
-                    android:layout_marginEnd="10dp"
-                    android:padding="0dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="50dp"/>
-            <ImageButton
-                    android:layout_width="38dp"
-                    android:layout_height="38dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/healCircle"
-                    android:adjustViewBounds="true"
-                    android:id="@+id/healButton"
-                    android:contentDescription="@string/main_button"
-                    android:layout_marginEnd="10dp"
-                    android:padding="0dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="50dp"/>
-            <ImageButton
-                    android:layout_width="38dp"
-                    android:layout_height="38dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/ghostCircle"
-                    android:adjustViewBounds="true"
-                    android:id="@+id/ghostButton"
-                    android:contentDescription="@string/main_button"
-                    android:layout_marginEnd="10dp"
-                    android:padding="0dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="50dp"/>
-
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:contextClickable="false" android:layout_marginStart="30dp"/>
 
         </LinearLayout>
-
         <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:layout_constraintLeft_toLeftOf="@id/buttonLayout"
-                app:layout_constraintTop_toTopOf="@id/buttonLayout"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/buttonLayout"
-                android:layout_marginEnd="70dp"
-                android:id="@+id/textLayout">
+                app:layout_constraintTop_toBottomOf="@id/toplaneLayout"
+                app:layout_constraintStart_toEndOf="@id/toplaneLayout"
+                android:layout_marginStart="8dp"
+                android:id="@+id/midlaneLayout">
             <TextView
                     android:text="@string/ready"
                     android:layout_width="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toStartof="@+id/textLayout"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView0"
-                    android:layout_marginStart="150dp"
+                    android:id="@+id/midlane_status1"
                     android:fontFamily="sans-serif-light"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textAllCaps="false"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="@android:color/white" android:layout_marginStart="10dp"/>
+            <ImageButton
+                    android:layout_width="35dp"
+                    android:layout_height="36dp"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/ignite"
+                    android:id="@+id/midlane_button1"
+                    tools:ignore="ContentDescription"
+                    android:padding="0dp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:contextClickable="false" android:layout_marginStart="30dp"/>
             <TextView
                     android:text="@string/ready"
                     android:layout_width="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView1"
-                    android:layout_marginStart="150dp"
+                    android:id="@+id/midlane_status2"
                     android:fontFamily="sans-serif-light"
-                    android:textSize="25sp"
-                    android:layout_marginTop="50dp"
-                    android:textColor="@android:color/white"/>
-            <TextView
-                    android:text="@string/ready"
-                    android:layout_width="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView2"
-                    android:layout_marginStart="150dp"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="25sp"
-                    android:layout_marginTop="50dp"
-                    android:textColor="@android:color/white"/>
-            <TextView
-                    android:text="@string/ready"
-                    android:layout_width="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView3"
-                    android:layout_marginStart="150dp"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="25sp"
-                    android:layout_marginTop="50dp"
-                    android:textColor="@android:color/white"/>
-            <TextView
-                    android:text="@string/ready"
-                    android:layout_width="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView4"
-                    android:layout_marginStart="150dp"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="25sp"
-                    android:layout_marginTop="50dp"
-                    android:textColor="@android:color/white"/>
+                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:layout_marginStart="50dp"/>
+            <ImageButton
+                    android:layout_width="35dp"
+                    android:layout_height="36dp"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/flash"
+                    android:id="@+id/midlane_button2"
+                    tools:ignore="ContentDescription"
+                    android:padding="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:contextClickable="false" android:layout_marginStart="30dp"/>
 
         </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/midlaneLayout"
+                app:layout_constraintStart_toEndOf="@id/midlaneLayout"
+                android:layout_marginStart="8dp"
+                android:id="@+id/jungleLayout">
+            <TextView
+                    android:text="@string/ready"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/jungle_status1"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white" android:layout_marginStart="10dp"/>
+            <ImageButton
+                    android:layout_width="35dp"
+                    android:layout_height="36dp"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/ignite"
+                    android:id="@+id/jungle_button1"
+                    tools:ignore="ContentDescription"
+                    android:padding="0dp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:contextClickable="false" android:layout_marginStart="30dp"/>
+            <TextView
+                    android:text="@string/ready"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/jungle_status2"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:layout_marginStart="50dp"/>
+            <ImageButton
+                    android:layout_width="35dp"
+                    android:layout_height="36dp"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/flash"
+                    android:id="@+id/jungle_button2"
+                    tools:ignore="ContentDescription"
+                    android:padding="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:contextClickable="false" android:layout_marginStart="30dp"/>
 
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/jungleLayout"
+                app:layout_constraintStart_toEndOf="@id/jungleLayout"
+                android:layout_marginStart="8dp"
+                android:id="@+id/bottomlaneLayout">
+            <TextView
+                    android:text="@string/ready"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bottomlane_status1"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white" android:layout_marginStart="10dp"/>
+            <ImageButton
+                    android:layout_width="35dp"
+                    android:layout_height="36dp"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/flash"
+                    android:id="@+id/bottomlane_button1"
+                    tools:ignore="ContentDescription"
+                    android:padding="0dp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:contextClickable="false" android:layout_marginStart="30dp"/>
+            <TextView
+                    android:text="@string/ready"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bottomlane_status2"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:layout_marginStart="50dp"/>
+            <ImageButton
+                    android:layout_width="35dp"
+                    android:layout_height="36dp"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/heal"
+                    android:id="@+id/bottomlane_button2"
+                    tools:ignore="ContentDescription"
+                    android:padding="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:contextClickable="false" android:layout_marginStart="30dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bottomlaneLayout"
+                app:layout_constraintStart_toEndOf="@id/bottomlaneLayout"
+                android:layout_marginStart="8dp"
+                android:id="@+id/supportLayout">
+            <TextView
+                    android:text="@string/ready"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/support_status1"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white" android:layout_marginStart="10dp"/>
+            <ImageButton
+                    android:layout_width="35dp"
+                    android:layout_height="36dp"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/flash"
+                    android:id="@+id/support_button1"
+                    tools:ignore="ContentDescription"
+                    android:padding="0dp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:contextClickable="false" android:layout_marginStart="30dp"/>
+            <TextView
+                    android:text="@string/ready"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/support_status2"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:layout_marginStart="50dp"/>
+            <ImageButton
+                    android:layout_width="35dp"
+                    android:layout_height="36dp"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/exhaust"
+                    android:id="@+id/support_button2"
+                    tools:ignore="ContentDescription"
+                    android:padding="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:contextClickable="false" android:layout_marginStart="30dp"/>
+
+        </LinearLayout>
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
