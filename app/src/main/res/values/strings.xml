@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Prototype1</string>
     <string name="ready">Ready</string>
+    <string name="main_button">This is the Button to start the timer</string>
+    <string name="main_text">This is the text for summoners status</string>
+    <string name="header_text">LEAGUE TIMER</string>
+    <string name="footer_text">RESET</string>
 </resources>
