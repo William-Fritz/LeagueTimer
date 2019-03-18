@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="0dp"
-        android:background="@drawable/gradient_background" android:id="@+id/backgroundLayout">
+        android:background="@drawable/gradient_background" android:id="@+id/background_layout">
 
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -14,7 +14,7 @@
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="50dp" android:id="@+id/mainLayout">
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="100dp" android:id="@+id/main_layout">
 
         <LinearLayout
                 android:orientation="horizontal"
@@ -22,20 +22,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toEndOf="@id/mainLayout"
-                app:layout_constraintTop_toTopOf="@id/mainLayout"
+                app:layout_constraintEnd_toEndOf="@id/main_layout"
+                app:layout_constraintTop_toTopOf="@id/main_layout"
                 android:layout_marginBottom="8dp"
-                app:layout_constraintStart_toStartOf="@id/mainLayout"
+                app:layout_constraintStart_toStartOf="@id/main_layout"
                 android:layout_marginStart="8dp"
-                android:id="@+id/toplaneLayout">
+                android:id="@+id/top_lane_layout">
             <TextView
                     android:text="@string/ready"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/toplane_status1"
+                    android:id="@+id/top_lane_status1"
                     android:fontFamily="sans-serif-light"
                     android:textSize="20sp"
                     android:textAllCaps="false"
+                    android:contentDescription="@string/main_text"
                     android:textColor="@android:color/white" android:layout_marginStart="10dp"/>
             <ImageButton
                     android:layout_width="35dp"
@@ -43,20 +44,21 @@
                     android:scaleType="centerCrop"
                     android:adjustViewBounds="true"
                     app:srcCompat="@drawable/teleport"
-                    android:id="@+id/toplane_button1"
-                    tools:ignore="ContentDescription"
+                    android:id="@+id/top_lane_button1"
                     android:padding="0dp"
                     android:layout_marginEnd="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    android:contentDescription="@string/main_button"
                     android:contextClickable="false" android:layout_marginStart="30dp"/>
             <TextView
                     android:text="@string/ready"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/toplane_status2"
+                    android:id="@+id/top_lane_status2"
                     android:fontFamily="sans-serif-light"
                     android:textSize="20sp"
                     android:textAllCaps="false"
+                    android:contentDescription="@string/main_text"
                     android:textColor="@android:color/white"
                     android:layout_marginStart="50dp"/>
             <ImageButton
@@ -65,9 +67,9 @@
                     android:scaleType="centerCrop"
                     android:adjustViewBounds="true"
                     app:srcCompat="@drawable/flash"
-                    android:id="@+id/toplane_button2"
-                    tools:ignore="ContentDescription"
+                    android:id="@+id/top_lane_button2"
                     android:padding="0dp"
+                    android:contentDescription="@string/main_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:contextClickable="false" android:layout_marginStart="30dp"/>
 
@@ -76,21 +78,22 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/toplaneLayout"
-                app:layout_constraintStart_toEndOf="@id/toplaneLayout"
+                app:layout_constraintTop_toBottomOf="@id/top_lane_layout"
+                app:layout_constraintStart_toEndOf="@id/top_lane_layout"
                 android:layout_marginStart="8dp"
-                android:id="@+id/midlaneLayout">
+                android:id="@+id/mid_lane_layout">
             <TextView
                     android:text="@string/ready"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/midlane_status1"
+                    android:id="@+id/mid_lane_status1"
                     android:fontFamily="sans-serif-light"
                     android:textSize="20sp"
                     android:textAllCaps="false"
+                    android:contentDescription="@string/main_text"
                     android:textColor="@android:color/white" android:layout_marginStart="10dp"/>
             <ImageButton
                     android:layout_width="35dp"
@@ -98,20 +101,21 @@
                     android:scaleType="centerCrop"
                     android:adjustViewBounds="true"
                     app:srcCompat="@drawable/ignite"
-                    android:id="@+id/midlane_button1"
-                    tools:ignore="ContentDescription"
+                    android:id="@+id/mid_lane_button1"
                     android:padding="0dp"
                     android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/main_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:contextClickable="false" android:layout_marginStart="30dp"/>
             <TextView
                     android:text="@string/ready"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/midlane_status2"
+                    android:id="@+id/mid_lane_status2"
                     android:fontFamily="sans-serif-light"
                     android:textSize="20sp"
                     android:textAllCaps="false"
+                    android:contentDescription="@string/main_text"
                     android:textColor="@android:color/white"
                     android:layout_marginStart="50dp"/>
             <ImageButton
@@ -120,9 +124,9 @@
                     android:scaleType="centerCrop"
                     android:adjustViewBounds="true"
                     app:srcCompat="@drawable/flash"
-                    android:id="@+id/midlane_button2"
-                    tools:ignore="ContentDescription"
+                    android:id="@+id/mid_lane_button2"
                     android:padding="0dp"
+                    android:contentDescription="@string/main_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:contextClickable="false" android:layout_marginStart="30dp"/>
 
@@ -131,13 +135,13 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/midlaneLayout"
-                app:layout_constraintStart_toEndOf="@id/midlaneLayout"
+                app:layout_constraintTop_toBottomOf="@id/mid_lane_layout"
+                app:layout_constraintStart_toEndOf="@id/mid_lane_layout"
                 android:layout_marginStart="8dp"
-                android:id="@+id/jungleLayout">
+                android:id="@+id/jungle_layout">
             <TextView
                     android:text="@string/ready"
                     android:layout_width="wrap_content"
@@ -146,6 +150,7 @@
                     android:fontFamily="sans-serif-light"
                     android:textSize="20sp"
                     android:textAllCaps="false"
+                    android:contentDescription="@string/main_text"
                     android:textColor="@android:color/white" android:layout_marginStart="10dp"/>
             <ImageButton
                     android:layout_width="35dp"
@@ -154,9 +159,9 @@
                     android:adjustViewBounds="true"
                     app:srcCompat="@drawable/ignite"
                     android:id="@+id/jungle_button1"
-                    tools:ignore="ContentDescription"
                     android:padding="0dp"
                     android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/main_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:contextClickable="false" android:layout_marginStart="30dp"/>
             <TextView
@@ -167,6 +172,7 @@
                     android:fontFamily="sans-serif-light"
                     android:textSize="20sp"
                     android:textAllCaps="false"
+                    android:contentDescription="@string/main_text"
                     android:textColor="@android:color/white"
                     android:layout_marginStart="50dp"/>
             <ImageButton
@@ -176,8 +182,8 @@
                     android:adjustViewBounds="true"
                     app:srcCompat="@drawable/flash"
                     android:id="@+id/jungle_button2"
-                    tools:ignore="ContentDescription"
                     android:padding="0dp"
+                    android:contentDescription="@string/main_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:contextClickable="false" android:layout_marginStart="30dp"/>
 
@@ -186,21 +192,22 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/jungleLayout"
-                app:layout_constraintStart_toEndOf="@id/jungleLayout"
+                app:layout_constraintTop_toBottomOf="@id/jungle_layout"
+                app:layout_constraintStart_toEndOf="@id/jungle_layout"
                 android:layout_marginStart="8dp"
-                android:id="@+id/bottomlaneLayout">
+                android:id="@+id/bottom_lane_layout">
             <TextView
                     android:text="@string/ready"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/bottomlane_status1"
+                    android:id="@+id/bottom_lane_status1"
                     android:fontFamily="sans-serif-light"
                     android:textSize="20sp"
                     android:textAllCaps="false"
+                    android:contentDescription="@string/main_text"
                     android:textColor="@android:color/white" android:layout_marginStart="10dp"/>
             <ImageButton
                     android:layout_width="35dp"
@@ -208,8 +215,8 @@
                     android:scaleType="centerCrop"
                     android:adjustViewBounds="true"
                     app:srcCompat="@drawable/flash"
-                    android:id="@+id/bottomlane_button1"
-                    tools:ignore="ContentDescription"
+                    android:id="@+id/bottom_lane_button1"
+                    android:contentDescription="@string/main_button"
                     android:padding="0dp"
                     android:layout_marginEnd="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -218,10 +225,11 @@
                     android:text="@string/ready"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/bottomlane_status2"
+                    android:id="@+id/bottom_lane_status2"
                     android:fontFamily="sans-serif-light"
                     android:textSize="20sp"
                     android:textAllCaps="false"
+                    android:contentDescription="@string/main_text"
                     android:textColor="@android:color/white"
                     android:layout_marginStart="50dp"/>
             <ImageButton
@@ -230,8 +238,8 @@
                     android:scaleType="centerCrop"
                     android:adjustViewBounds="true"
                     app:srcCompat="@drawable/heal"
-                    android:id="@+id/bottomlane_button2"
-                    tools:ignore="ContentDescription"
+                    android:id="@+id/bottom_lane_button2"
+                    android:contentDescription="@string/main_button"
                     android:padding="0dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:contextClickable="false" android:layout_marginStart="30dp"/>
@@ -241,13 +249,13 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/bottomlaneLayout"
-                app:layout_constraintStart_toEndOf="@id/bottomlaneLayout"
+                app:layout_constraintTop_toBottomOf="@id/bottom_lane_layout"
+                app:layout_constraintStart_toEndOf="@id/bottom_lane_layout"
                 android:layout_marginStart="8dp"
-                android:id="@+id/supportLayout">
+                android:id="@+id/support_layout">
             <TextView
                     android:text="@string/ready"
                     android:layout_width="wrap_content"
@@ -256,6 +264,7 @@
                     android:fontFamily="sans-serif-light"
                     android:textSize="20sp"
                     android:textAllCaps="false"
+                    android:contentDescription="@string/main_text"
                     android:textColor="@android:color/white" android:layout_marginStart="10dp"/>
             <ImageButton
                     android:layout_width="35dp"
@@ -264,7 +273,7 @@
                     android:adjustViewBounds="true"
                     app:srcCompat="@drawable/flash"
                     android:id="@+id/support_button1"
-                    tools:ignore="ContentDescription"
+                    android:contentDescription="@string/main_button"
                     android:padding="0dp"
                     android:layout_marginEnd="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -277,6 +286,7 @@
                     android:fontFamily="sans-serif-light"
                     android:textSize="20sp"
                     android:textAllCaps="false"
+                    android:contentDescription="@string/main_text"
                     android:textColor="@android:color/white"
                     android:layout_marginStart="50dp"/>
             <ImageButton
@@ -286,7 +296,7 @@
                     android:adjustViewBounds="true"
                     app:srcCompat="@drawable/exhaust"
                     android:id="@+id/support_button2"
-                    tools:ignore="ContentDescription"
+                    android:contentDescription="@string/main_button"
                     android:padding="0dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:contextClickable="false" android:layout_marginStart="30dp"/>
