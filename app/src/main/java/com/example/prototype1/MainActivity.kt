@@ -8,20 +8,25 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.ToggleButton
-
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
-
+    private var button_check = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
         val top_lane_button2 = findViewById<ImageButton>(R.id.top_lane_button2)
-        val top_lane_status2 = findViewById<TextView>(R.id.top_lane_status2)
-        top_lane_button2.setOnClickListener{top_lane_status2.setText(getString(R.string.cooldown))}
-        top_lane_status2.setOnClickListener{top_lane_status2.setText(getString(R.string.cooldown))}
+        top_lane_button2.setOnClickListener {
+            if (button_check == true) {
+                top_lane_status2.setText(getString(R.string.cooldown))
+                button_check = false
+            } else {
+                top_lane_status2.setText(getString(R.string.ready))
+                button_check = true
+            }
 
+        }
     }
 }
+
