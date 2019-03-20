@@ -1,6 +1,7 @@
 package com.example.prototype1
 
 import android.graphics.Color
+import android.graphics.PorterDuff
 import android.graphics.drawable.ColorDrawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -20,9 +21,11 @@ class MainActivity : AppCompatActivity() {
         top_lane_button2.setOnClickListener {
             if (button_check == true) {
                 top_lane_status2.setText(getString(R.string.cooldown))
+                top_lane_button2.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 button_check = false
             } else {
                 top_lane_status2.setText(getString(R.string.ready))
+                top_lane_button2.setColorFilter(null)
                 button_check = true
             }
 
