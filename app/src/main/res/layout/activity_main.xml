@@ -336,7 +336,7 @@
         <TextView
                 android:text="@string/footer_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/footer_text"
+                android:layout_height="wrap_content" android:id="@+id/reset_text"
                 android:textColor="@color/colorAccent" app:layout_constraintLeft_toLeftOf="@id/menu_layout"
                 app:layout_constraintRight_toRightOf="@id/menu_layout"
                 app:layout_constraintTop_toTopOf="@id/menu_layout"

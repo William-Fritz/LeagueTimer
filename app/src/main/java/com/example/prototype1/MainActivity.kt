@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.EditText
+import org.w3c.dom.Text
 
 
 class MainActivity : AppCompatActivity() {
@@ -13,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         //create variables for button check
 
@@ -40,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         val right_mid_lane_button = findViewById<ImageButton>(R.id.right_mid_lane_button)
         val right_mid_lane_status = findViewById<TextView>(R.id.right_mid_lane_status)
         val left_mid_lane_button= findViewById<ImageButton>(R.id.left_mid_lane_button)
-        val left_mid_lane_status = findViewById<TextView>(R.id.left_mid_lane_status )
+        val left_mid_lane_status = findViewById<TextView>(R.id.left_mid_lane_status)
         val right_bottom_lane_button = findViewById<ImageButton>(R.id.right_bottom_lane_button)
         val right_bottom_lane_status = findViewById<TextView>(R.id.right_bottom_lane_status )
         val left_bottom_lane_button= findViewById<ImageButton>(R.id.left_bottom_lane_button)
@@ -48,7 +51,8 @@ class MainActivity : AppCompatActivity() {
         val right_support_button = findViewById<ImageButton>(R.id.right_support_button)
         val right_support_status = findViewById<TextView>(R.id.right_support_status)
         val left_support_button= findViewById<ImageButton>(R.id.left_support_button)
-        val left_support_status  = findViewById<TextView>(R.id.left_support_status  )
+        val left_support_status  = findViewById<TextView>(R.id.left_support_status)
+        val reset_button = findViewById<TextView>(R.id.reset_text)
 
         //button listener
         right_top_lane_button.setOnClickListener {
@@ -111,6 +115,9 @@ class MainActivity : AppCompatActivity() {
         left_support_status.setOnClickListener {
             left_support_button_is_clicked = toggle_timer(left_support_status, left_support_button, left_support_button_is_clicked)
         }
+        reset_button.setOnClickListener {
+            recreate()
+        }
     }
 
     //function to change the text and the foreground color of button
@@ -127,6 +134,7 @@ class MainActivity : AppCompatActivity() {
         toggle_active = !toggle_active
         return toggle_active
     }
+
 }
 
 
