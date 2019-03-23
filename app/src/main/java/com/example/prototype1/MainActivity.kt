@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.graphics.PorterDuff
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.EditText
@@ -57,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         //button listener
         right_top_lane_button.setOnClickListener {
             right_top_button_is_clicked = toggle_timer(right_top_lane_status, right_top_lane_button, right_top_button_is_clicked)
+            button_availibility_timer(right_top_lane_button)
         }
         right_top_lane_status.setOnClickListener{
             right_top_button_is_clicked = toggle_timer(right_top_lane_status, right_top_lane_button, right_top_button_is_clicked)
@@ -134,6 +136,18 @@ class MainActivity : AppCompatActivity() {
         toggle_active = !toggle_active
         return toggle_active
     }
+    fun button_availibility_timer(imageButton: ImageButton){
+        imageButton.setEnabled(false)
+        var button_cooldown =object: CountDownTimer(5000,1000){
+            override fun onTick(millisUntilFinished: Long) {
+            }
+            override fun onFinish(){
+                imageButton.setColorFilter(null)
+                imageButton.setEnabled(true)
+            }
+        }.start()
+    }
+
 
 }
 
