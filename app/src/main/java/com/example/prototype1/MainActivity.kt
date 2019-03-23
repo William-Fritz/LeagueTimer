@@ -58,7 +58,6 @@ class MainActivity : AppCompatActivity() {
         //button listener
         right_top_lane_button.setOnClickListener {
             right_top_button_is_clicked = toggle_timer(right_top_lane_status, right_top_lane_button, right_top_button_is_clicked)
-            button_availibility_timer(right_top_lane_button)
         }
         right_top_lane_status.setOnClickListener{
             right_top_button_is_clicked = toggle_timer(right_top_lane_status, right_top_lane_button, right_top_button_is_clicked)
@@ -126,29 +125,27 @@ class MainActivity : AppCompatActivity() {
 
     fun toggle_timer(text: TextView, imageButton: ImageButton, button_is_clicked: Boolean): Boolean {
         var toggle_active = button_is_clicked
+        val countdowntimer = object :CountDownTimer(5000,1000){
+            override fun onTick(millisUntilFinished: Long) {
+                imageButton.setEnabled(false)
+                text.setEnabled(false)
+            }
+            override fun onFinish(){
+                text.setText(getString(R.string.ready))
+                imageButton.setColorFilter(null)
+                imageButton.setEnabled(true)
+                text.setEnabled(true)
+            }
+        }
         if (toggle_active) {
-            text.setText(getString(R.string.cooldown))
+            countdowntimer.start()
             imageButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
         } else {
-            text.setText(getString(R.string.ready))
-            imageButton.setColorFilter(null)
+            countdowntimer.onFinish()
         }
         toggle_active = !toggle_active
         return toggle_active
     }
-    fun button_availibility_timer(imageButton: ImageButton){
-        imageButton.setEnabled(false)
-        var button_cooldown =object: CountDownTimer(5000,1000){
-            override fun onTick(millisUntilFinished: Long) {
-            }
-            override fun onFinish(){
-                imageButton.setColorFilter(null)
-                imageButton.setEnabled(true)
-            }
-        }.start()
-    }
-
-
 }
 
 
