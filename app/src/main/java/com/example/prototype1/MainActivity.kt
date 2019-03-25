@@ -57,6 +57,18 @@ class MainActivity : AppCompatActivity() {
         val left_support_status  = findViewById<TextView>(R.id.left_support_status)
         val reset_button = findViewById<TextView>(R.id.reset_text)
 
+        // timer
+        var leftTopTimer = object: CountDownTimer(5000,1000){
+            override fun onTick(millisUntilFinished: Long) {
+                left_top_lane_status.setText("${millisUntilFinished/1000 + 1}")
+            }
+            override fun onFinish() {
+                left_top_lane_status.setText(getString(R.string.ready))
+                left_top_lane_button.setColorFilter(null)
+                left_top_button_is_clicked = !left_top_button_is_clicked
+            }
+        }
+
         //button listener
         right_top_lane_button.setOnClickListener {
             right_top_button_is_clicked = toggle_timer(right_top_lane_status, right_top_lane_button, right_top_button_is_clicked)
@@ -65,7 +77,11 @@ class MainActivity : AppCompatActivity() {
             right_top_button_is_clicked = toggle_timer(right_top_lane_status, right_top_lane_button, right_top_button_is_clicked)
         }
         left_top_lane_button.setOnClickListener {
-            left_top_button_is_clicked = toggle_timer(left_top_lane_status, left_top_lane_button, left_top_button_is_clicked)
+            if (left_top_button_is_clicked) {
+                leftTopTimer.start()
+                left_top_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                left_top_button_is_clicked = !left_top_button_is_clicked
+            }
         }
         left_top_lane_status.setOnClickListener{
             left_top_button_is_clicked = toggle_timer(left_top_lane_status, left_top_lane_button, left_top_button_is_clicked)
@@ -128,14 +144,14 @@ class MainActivity : AppCompatActivity() {
     fun toggle_timer(text: TextView, imageButton: ImageButton, button_is_clicked: Boolean): Boolean {
         var toggle_active = button_is_clicked
         if (toggle_active) {
-            startTimer(text, imageButton)
+            startTimer(text, imageButton, button_is_clicked)
         }
-        toggle_active = !toggle_active
         return toggle_active
         //deleted the else argument since we no longer need it, kept the boolean toogle_active to make the onLongPress function next
     }
     //made the proper timer function, so i can use it as callbacks later with onResume and onPause
-    fun startTimer(text: TextView, imageButton: ImageButton){
+    fun startTimer(text: TextView, imageButton: ImageButton, toggle: Boolean){
+        var mToggle = toggle
         timer = object: CountDownTimer(5000,1000){
             override fun onTick(millisUntilFinished: Long) {
                 text.setText(getString(R.string.cooldown))
@@ -144,6 +160,7 @@ class MainActivity : AppCompatActivity() {
             override fun onFinish() {
                 text.setText(getString(R.string.ready))
                 imageButton.setColorFilter(null)
+                mToggle = !mToggle
             }
         }.start()
     }
