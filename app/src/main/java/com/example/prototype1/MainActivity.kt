@@ -68,13 +68,111 @@ class MainActivity : AppCompatActivity() {
                 left_top_button_is_clicked = !left_top_button_is_clicked
             }
         }
+        var rightTopTimer = object: CountDownTimer(5000,1000){
+            override fun onTick(millisUntilFinished: Long) {
+                right_top_lane_status.setText("${millisUntilFinished/1000 + 1}")
+            }
+            override fun onFinish() {
+                right_top_lane_status.setText(getString(R.string.ready))
+                right_top_lane_button.setColorFilter(null)
+                right_top_button_is_clicked = !right_top_button_is_clicked
+            }
+        }
+        var leftJungleTimer = object: CountDownTimer(5000,1000){
+            override fun onTick(millisUntilFinished: Long) {
+                left_jungle_status.setText("${millisUntilFinished/1000 + 1}")
+            }
+            override fun onFinish() {
+                left_jungle_status.setText(getString(R.string.ready))
+                left_jungle_button.setColorFilter(null)
+                left_jungle_button_is_clicked = !left_jungle_button_is_clicked
+            }
+        }
+        var rightJungleTimer = object: CountDownTimer(5000,1000){
+            override fun onTick(millisUntilFinished: Long) {
+                right_jungle_status.setText("${millisUntilFinished/1000 + 1}")
+            }
+            override fun onFinish() {
+                right_jungle_status.setText(getString(R.string.ready))
+                right_jungle_button.setColorFilter(null)
+                right_jungle_button_is_clicked = !right_jungle_button_is_clicked
+            }
+        }
+        var leftMiddleTimer = object: CountDownTimer(5000,1000){
+            override fun onTick(millisUntilFinished: Long) {
+                left_mid_lane_status.setText("${millisUntilFinished/1000 + 1}")
+            }
+            override fun onFinish() {
+                left_mid_lane_status.setText(getString(R.string.ready))
+                left_mid_lane_button.setColorFilter(null)
+                left_mid_button_is_clicked = !left_mid_button_is_clicked
+            }
+        }
+        var rightMiddleTimer = object: CountDownTimer(5000,1000){
+            override fun onTick(millisUntilFinished: Long) {
+                right_mid_lane_status.setText("${millisUntilFinished/1000 + 1}")
+            }
+            override fun onFinish() {
+                right_mid_lane_status.setText(getString(R.string.ready))
+                right_mid_lane_button.setColorFilter(null)
+                right_mid_button_is_clicked = !right_mid_button_is_clicked
+            }
+        }
+        var leftBottomTimer = object: CountDownTimer(5000,1000){
+            override fun onTick(millisUntilFinished: Long) {
+                left_bottom_lane_status.setText("${millisUntilFinished/1000 + 1}")
+            }
+            override fun onFinish() {
+                left_bottom_lane_status.setText(getString(R.string.ready))
+                left_bottom_lane_button.setColorFilter(null)
+                left_bottom_button_is_clicked = !left_bottom_button_is_clicked
+            }
+        }
+        var rightBottomTimer = object: CountDownTimer(5000,1000){
+            override fun onTick(millisUntilFinished: Long) {
+                right_bottom_lane_status.setText("${millisUntilFinished/1000 + 1}")
+            }
+            override fun onFinish() {
+                right_bottom_lane_status.setText(getString(R.string.ready))
+                right_bottom_lane_button.setColorFilter(null)
+                right_bottom_button_is_clicked = !right_bottom_button_is_clicked
+            }
+        }
+        var leftSupportTimer = object: CountDownTimer(5000,1000){
+            override fun onTick(millisUntilFinished: Long) {
+                left_support_status.setText("${millisUntilFinished/1000 + 1}")
+            }
+            override fun onFinish() {
+                left_support_status.setText(getString(R.string.ready))
+                left_support_button.setColorFilter(null)
+                left_support_button_is_clicked = !left_support_button_is_clicked
+            }
+        }
+        var rightSupportTimer = object: CountDownTimer(5000,1000){
+            override fun onTick(millisUntilFinished: Long) {
+                right_support_status.setText("${millisUntilFinished/1000 + 1}")
+            }
+            override fun onFinish() {
+                right_support_status.setText(getString(R.string.ready))
+                right_support_button.setColorFilter(null)
+                right_support_button_is_clicked = !right_support_button_is_clicked
+            }
+        }
 
         //button listener
         right_top_lane_button.setOnClickListener {
-            right_top_button_is_clicked = toggle_timer(right_top_lane_status, right_top_lane_button, right_top_button_is_clicked)
+            if (right_top_button_is_clicked) {
+                rightTopTimer.start()
+                right_top_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                right_top_button_is_clicked = !right_top_button_is_clicked
+            }
         }
         right_top_lane_status.setOnClickListener{
-            right_top_button_is_clicked = toggle_timer(right_top_lane_status, right_top_lane_button, right_top_button_is_clicked)
+            if (right_top_button_is_clicked) {
+                rightTopTimer.start()
+                right_top_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                right_top_button_is_clicked = !right_top_button_is_clicked
+            }
         }
         left_top_lane_button.setOnClickListener {
             if (left_top_button_is_clicked) {
@@ -84,85 +182,127 @@ class MainActivity : AppCompatActivity() {
             }
         }
         left_top_lane_status.setOnClickListener{
-            left_top_button_is_clicked = toggle_timer(left_top_lane_status, left_top_lane_button, left_top_button_is_clicked)
+            if (left_top_button_is_clicked) {
+                leftTopTimer.start()
+                left_top_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                left_top_button_is_clicked = !left_top_button_is_clicked
+            }
         }
         right_jungle_button.setOnClickListener {
-            right_jungle_button_is_clicked = toggle_timer(right_jungle_status, right_jungle_button, right_jungle_button_is_clicked)
+            if (right_jungle_button_is_clicked) {
+                rightJungleTimer.start()
+                right_jungle_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                right_jungle_button_is_clicked = !right_jungle_button_is_clicked
+            }
         }
         right_jungle_status.setOnClickListener{
-            right_jungle_button_is_clicked = toggle_timer(right_jungle_status, right_jungle_button, right_jungle_button_is_clicked)
+            if (right_jungle_button_is_clicked) {
+                rightJungleTimer.start()
+                right_jungle_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                right_jungle_button_is_clicked = !right_jungle_button_is_clicked
+            }
         }
         left_jungle_button.setOnClickListener {
-            left_jungle_button_is_clicked = toggle_timer(left_jungle_status, left_jungle_button, left_jungle_button_is_clicked)
+            if (left_jungle_button_is_clicked) {
+                leftJungleTimer.start()
+                left_jungle_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                left_jungle_button_is_clicked = !left_jungle_button_is_clicked
+            }
         }
         left_jungle_status.setOnClickListener {
-            left_jungle_button_is_clicked = toggle_timer(left_jungle_status, left_jungle_button, left_jungle_button_is_clicked)
+            if (left_jungle_button_is_clicked) {
+                leftJungleTimer.start()
+                left_jungle_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                left_jungle_button_is_clicked = !left_jungle_button_is_clicked
+            }
         }
         right_mid_lane_button.setOnClickListener {
-            right_mid_button_is_clicked = toggle_timer(right_mid_lane_status, right_mid_lane_button, right_mid_button_is_clicked)
+            if (right_mid_button_is_clicked) {
+                rightMiddleTimer.start()
+                right_mid_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                right_mid_button_is_clicked = !right_mid_button_is_clicked
+            }
         }
         right_mid_lane_status.setOnClickListener {
-            right_mid_button_is_clicked = toggle_timer(right_mid_lane_status, right_mid_lane_button, right_mid_button_is_clicked)
+            if (right_mid_button_is_clicked) {
+                rightMiddleTimer.start()
+                right_mid_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                right_mid_button_is_clicked = !right_mid_button_is_clicked
+            }
         }
         left_mid_lane_button.setOnClickListener {
-            left_mid_button_is_clicked = toggle_timer(left_mid_lane_status, left_mid_lane_button, left_mid_button_is_clicked)
+            if (left_mid_button_is_clicked) {
+                leftMiddleTimer.start()
+                left_mid_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                left_mid_button_is_clicked = !left_mid_button_is_clicked
+            }
         }
         left_mid_lane_status.setOnClickListener {
-            left_mid_button_is_clicked = toggle_timer(left_mid_lane_status, left_mid_lane_button, left_mid_button_is_clicked)
+            if (left_mid_button_is_clicked) {
+                leftMiddleTimer.start()
+                left_mid_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                left_mid_button_is_clicked = !left_mid_button_is_clicked
+            }
         }
         right_bottom_lane_button.setOnClickListener {
-            right_bottom_button_is_clicked = toggle_timer(right_bottom_lane_status, right_bottom_lane_button, right_bottom_button_is_clicked)
+            if (right_bottom_button_is_clicked) {
+                rightBottomTimer.start()
+                right_bottom_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                right_bottom_button_is_clicked = !right_bottom_button_is_clicked
+            }
         }
         right_bottom_lane_status.setOnClickListener {
-            right_bottom_button_is_clicked = toggle_timer(right_bottom_lane_status, right_bottom_lane_button, right_bottom_button_is_clicked)
+            if (right_bottom_button_is_clicked) {
+                rightBottomTimer.start()
+                right_bottom_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                right_bottom_button_is_clicked = !right_bottom_button_is_clicked
+            }
         }
         left_bottom_lane_button.setOnClickListener {
-            left_bottom_button_is_clicked = toggle_timer(left_bottom_lane_status, left_bottom_lane_button, left_bottom_button_is_clicked)
+            if (left_bottom_button_is_clicked) {
+                leftBottomTimer.start()
+                left_bottom_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                left_bottom_button_is_clicked = !left_bottom_button_is_clicked
+            }
         }
         left_bottom_lane_status.setOnClickListener {
-            left_bottom_button_is_clicked = toggle_timer(left_bottom_lane_status, left_bottom_lane_button, left_bottom_button_is_clicked)
+            if (left_bottom_button_is_clicked) {
+                leftBottomTimer.start()
+                left_bottom_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                left_bottom_button_is_clicked = !left_bottom_button_is_clicked
+            }
         }
         right_support_button.setOnClickListener {
-            right_support_button_is_clicked = toggle_timer(right_support_status, right_support_button, right_support_button_is_clicked)
+            if (right_support_button_is_clicked) {
+                rightSupportTimer.start()
+                right_support_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                right_support_button_is_clicked = !right_support_button_is_clicked
+            }
         }
         right_support_status.setOnClickListener {
-            right_support_button_is_clicked = toggle_timer(right_support_status, right_support_button, right_support_button_is_clicked)
+            if (right_support_button_is_clicked) {
+                rightSupportTimer.start()
+                right_support_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                right_support_button_is_clicked = !right_support_button_is_clicked
+            }
         }
         left_support_button.setOnClickListener {
-            left_support_button_is_clicked = toggle_timer(left_support_status, left_support_button, left_support_button_is_clicked)
+            if (left_support_button_is_clicked) {
+                leftSupportTimer.start()
+                left_support_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                left_support_button_is_clicked = !left_support_button_is_clicked
+            }
         }
         left_support_status.setOnClickListener {
-            left_support_button_is_clicked = toggle_timer(left_support_status, left_support_button, left_support_button_is_clicked)
+            if (left_support_button_is_clicked) {
+                leftSupportTimer.start()
+                left_support_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                left_support_button_is_clicked = !left_support_button_is_clicked
+            }
         }
         reset_button.setOnClickListener {
             recreate()
         }
-    }
-
-    //function to change the text and the foreground color of button
-
-    fun toggle_timer(text: TextView, imageButton: ImageButton, button_is_clicked: Boolean): Boolean {
-        var toggle_active = button_is_clicked
-        if (toggle_active) {
-            startTimer(text, imageButton, button_is_clicked)
-        }
-        return toggle_active
-        //deleted the else argument since we no longer need it, kept the boolean toogle_active to make the onLongPress function next
-    }
-    //made the proper timer function, so i can use it as callbacks later with onResume and onPause
-    fun startTimer(text: TextView, imageButton: ImageButton, toggle: Boolean){
-        var mToggle = toggle
-        timer = object: CountDownTimer(5000,1000){
-            override fun onTick(millisUntilFinished: Long) {
-                text.setText(getString(R.string.cooldown))
-                imageButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-            }
-            override fun onFinish() {
-                text.setText(getString(R.string.ready))
-                imageButton.setColorFilter(null)
-                mToggle = !mToggle
-            }
-        }.start()
     }
 }
 
