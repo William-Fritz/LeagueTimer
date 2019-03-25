@@ -46,6 +46,15 @@ class MainActivity : AppCompatActivity() {
 
         // button type
         var leftTopButtonType = "teleport"
+        var rightTopButtonType = "flash"
+        var leftJungleButtonType ="smite"
+        var rightJungleButtonType ="flash"
+        var leftMidButtonType = "flash"
+        var rightMidButtonType = "ignite"
+        var leftBottomButtonType = "flash"
+        var rightBottomButtonType = "heal"
+        var leftSupportButtonType = "flash"
+        var rightSupportButtonType = "exhaust"
 
         //create variables for all imagebutton and textview
 
@@ -71,111 +80,35 @@ class MainActivity : AppCompatActivity() {
         val leftSupportStatus  = findViewById<TextView>(R.id.left_support_status)
         val resetButton = findViewById<TextView>(R.id.reset_text)
 
-        // timer
-
-        var rightTopTimer = object: CountDownTimer(5000,1000){
-            override fun onTick(millisUntilFinished: Long) {
-                rightTopLaneStatus.setText("${millisUntilFinished/1000 + 1}")
-            }
-            override fun onFinish() {
-                rightTopLaneStatus.setText(getString(R.string.ready))
-                rightTopLaneButton.setColorFilter(null)
-                rightTopButtonIsClicked = !rightTopButtonIsClicked
-            }
-        }
-        var leftJungleTimer = object: CountDownTimer(5000,1000){
-            override fun onTick(millisUntilFinished: Long) {
-                leftJungleStatus.setText("${millisUntilFinished/1000 + 1}")
-            }
-            override fun onFinish() {
-                leftJungleStatus.setText(getString(R.string.ready))
-                leftJungleButton.setColorFilter(null)
-                leftJungleButtonIsClicked = !leftJungleButtonIsClicked
-            }
-        }
-        var rightJungleTimer = object: CountDownTimer(5000,1000){
-            override fun onTick(millisUntilFinished: Long) {
-                rightJungleStatus.setText("${millisUntilFinished/1000 + 1}")
-            }
-            override fun onFinish() {
-                rightJungleStatus.setText(getString(R.string.ready))
-                rightJungleButton.setColorFilter(null)
-                rightJungleButtonIsClicked = !rightJungleButtonIsClicked
-            }
-        }
-        var leftMiddleTimer = object: CountDownTimer(5000,1000){
-            override fun onTick(millisUntilFinished: Long) {
-                leftMidLaneStatus.setText("${millisUntilFinished/1000 + 1}")
-            }
-            override fun onFinish() {
-                leftMidLaneStatus.setText(getString(R.string.ready))
-                leftMidLaneButton.setColorFilter(null)
-                leftMidButtonIsClicked = !leftMidButtonIsClicked
-            }
-        }
-        var rightMiddleTimer = object: CountDownTimer(5000,1000){
-            override fun onTick(millisUntilFinished: Long) {
-                rightMidLaneStatus.setText("${millisUntilFinished/1000 + 1}")
-            }
-            override fun onFinish() {
-                rightMidLaneStatus.setText(getString(R.string.ready))
-                rightMidLaneButton.setColorFilter(null)
-                rightMidButtonIsClicked = !rightMidButtonIsClicked
-            }
-        }
-        var leftBottomTimer = object: CountDownTimer(5000,1000){
-            override fun onTick(millisUntilFinished: Long) {
-                leftBottomLaneStatus.setText("${millisUntilFinished/1000 + 1}")
-            }
-            override fun onFinish() {
-                leftBottomLaneStatus.setText(getString(R.string.ready))
-                leftBottomLaneButton.setColorFilter(null)
-                leftBottomButtonIsClicked = !leftBottomButtonIsClicked
-            }
-        }
-        var rightBottomTimer = object: CountDownTimer(5000,1000){
-            override fun onTick(millisUntilFinished: Long) {
-                rightBottomLaneStatus.setText("${millisUntilFinished/1000 + 1}")
-            }
-            override fun onFinish() {
-                rightBottomLaneStatus.setText(getString(R.string.ready))
-                rightBottomLaneButton.setColorFilter(null)
-                rightBottomButtonIsClicked = !rightBottomButtonIsClicked
-            }
-        }
-        var leftSupportTimer = object: CountDownTimer(5000,1000){
-            override fun onTick(millisUntilFinished: Long) {
-                leftSupportStatus.setText("${millisUntilFinished/1000 + 1}")
-            }
-            override fun onFinish() {
-                leftSupportStatus.setText(getString(R.string.ready))
-                leftSupportButton.setColorFilter(null)
-                leftSupportButtonIsClicked = !leftSupportButtonIsClicked
-            }
-        }
-        var rightSupportTimer = object: CountDownTimer(5000,1000){
-            override fun onTick(millisUntilFinished: Long) {
-                rightSupportStatus.setText("${millisUntilFinished/1000 + 1}")
-            }
-            override fun onFinish() {
-                rightSupportStatus.setText(getString(R.string.ready))
-                rightSupportButton.setColorFilter(null)
-                rightSupportButtonIsClicked = !rightSupportButtonIsClicked
-            }
-        }
-
         //button listener
         rightTopLaneButton.setOnClickListener {
             if (rightTopButtonIsClicked) {
-
-                rightTopTimer.start()
+                object: CountDownTimer(buttonCooldowns[rightTopButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        rightTopLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        rightTopLaneStatus.setText(getString(R.string.ready))
+                        rightTopLaneButton.setColorFilter(null)
+                        rightTopButtonIsClicked = !rightTopButtonIsClicked
+                    }
+                }.start()
                 rightTopLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 rightTopButtonIsClicked = !rightTopButtonIsClicked
             }
         }
         rightTopLaneStatus.setOnClickListener{
             if (rightTopButtonIsClicked) {
-                rightTopTimer.start()
+                object: CountDownTimer(buttonCooldowns[rightTopButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        rightTopLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        rightTopLaneStatus.setText(getString(R.string.ready))
+                        rightTopLaneButton.setColorFilter(null)
+                        rightTopButtonIsClicked = !rightTopButtonIsClicked
+                    }
+                }.start()
                 rightTopLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 rightTopButtonIsClicked = !rightTopButtonIsClicked
             }
@@ -214,112 +147,256 @@ class MainActivity : AppCompatActivity() {
         }
         rightJungleButton.setOnClickListener {
             if (rightJungleButtonIsClicked) {
-                rightJungleTimer.start()
+                object: CountDownTimer(buttonCooldowns[rightJungleButtonType]!! * 1000,1000) {
+                    override fun onTick(millisUntilFinished: Long) {
+                        rightJungleStatus.setText("${millisUntilFinished / 1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        rightJungleStatus.setText(getString(R.string.ready))
+                        rightJungleButton.setColorFilter(null)
+                        rightJungleButtonIsClicked = !rightJungleButtonIsClicked
+                    }
+                }.start()
                 rightJungleButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 rightJungleButtonIsClicked = !rightJungleButtonIsClicked
             }
         }
         rightJungleStatus.setOnClickListener{
             if (rightJungleButtonIsClicked) {
-                rightJungleTimer.start()
+                object: CountDownTimer(buttonCooldowns[rightJungleButtonType]!! * 1000,1000) {
+                    override fun onTick(millisUntilFinished: Long) {
+                        rightJungleStatus.setText("${millisUntilFinished / 1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        rightJungleStatus.setText(getString(R.string.ready))
+                        rightJungleButton.setColorFilter(null)
+                        rightJungleButtonIsClicked = !rightJungleButtonIsClicked
+                    }
+                }.start()
                 rightJungleButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 rightJungleButtonIsClicked = !rightJungleButtonIsClicked
             }
         }
         leftJungleButton.setOnClickListener {
             if (leftJungleButtonIsClicked) {
-                leftJungleTimer.start()
+                object: CountDownTimer(buttonCooldowns[leftTopButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        leftJungleStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        leftJungleStatus.setText(getString(R.string.ready))
+                        leftJungleButton.setColorFilter(null)
+                        leftJungleButtonIsClicked = !leftJungleButtonIsClicked
+                    }
+                }.start()
                 leftJungleButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 leftJungleButtonIsClicked = !leftJungleButtonIsClicked
             }
         }
         leftJungleStatus.setOnClickListener {
             if (leftJungleButtonIsClicked) {
-                leftJungleTimer.start()
+                object: CountDownTimer(buttonCooldowns[leftTopButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        leftMidLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        leftMidLaneStatus.setText(getString(R.string.ready))
+                        leftMidLaneButton.setColorFilter(null)
+                        leftMidButtonIsClicked = !leftMidButtonIsClicked
+                    }
+                }.start()
                 leftJungleButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 leftJungleButtonIsClicked = !leftJungleButtonIsClicked
             }
         }
         rightMidLaneButton.setOnClickListener {
             if (rightMidButtonIsClicked) {
-                rightMiddleTimer.start()
+                object: CountDownTimer(buttonCooldowns[rightMidButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        rightMidLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        rightMidLaneStatus.setText(getString(R.string.ready))
+                        rightMidLaneButton.setColorFilter(null)
+                        rightMidButtonIsClicked = !rightMidButtonIsClicked
+                    }
+                }.start()
                 rightMidLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 rightMidButtonIsClicked = !rightMidButtonIsClicked
             }
         }
         rightMidLaneStatus.setOnClickListener {
             if (rightMidButtonIsClicked) {
-                rightMiddleTimer.start()
+                object: CountDownTimer(buttonCooldowns[rightMidButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        rightMidLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        rightMidLaneStatus.setText(getString(R.string.ready))
+                        rightMidLaneButton.setColorFilter(null)
+                        rightMidButtonIsClicked = !rightMidButtonIsClicked
+                    }
+                }.start()
                 rightMidLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 rightMidButtonIsClicked = !rightMidButtonIsClicked
             }
         }
         leftMidLaneButton.setOnClickListener {
             if (leftMidButtonIsClicked) {
-                leftMiddleTimer.start()
+                object: CountDownTimer(buttonCooldowns[leftMidButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        leftMidLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        leftMidLaneStatus.setText(getString(R.string.ready))
+                        leftMidLaneButton.setColorFilter(null)
+                        leftMidButtonIsClicked = !leftMidButtonIsClicked
+                    }
+                }.start()
                 leftMidLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 leftMidButtonIsClicked = !leftMidButtonIsClicked
             }
         }
         leftMidLaneStatus.setOnClickListener {
             if (leftMidButtonIsClicked) {
-                leftMiddleTimer.start()
+                object: CountDownTimer(buttonCooldowns[leftMidButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        leftMidLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        leftMidLaneStatus.setText(getString(R.string.ready))
+                        leftMidLaneButton.setColorFilter(null)
+                        leftMidButtonIsClicked = !leftMidButtonIsClicked
+                    }
+                }.start()
                 leftMidLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 leftMidButtonIsClicked = !leftMidButtonIsClicked
             }
         }
         rightBottomLaneButton.setOnClickListener {
             if (rightBottomButtonIsClicked) {
-                rightBottomTimer.start()
+                object: CountDownTimer(buttonCooldowns[rightBottomButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        rightBottomLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        rightBottomLaneStatus.setText(getString(R.string.ready))
+                        rightBottomLaneButton.setColorFilter(null)
+                        rightBottomButtonIsClicked = !rightBottomButtonIsClicked
+                    }
+                }.start()
                 rightBottomLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 rightBottomButtonIsClicked = !rightBottomButtonIsClicked
             }
         }
         rightBottomLaneStatus.setOnClickListener {
             if (rightBottomButtonIsClicked) {
-                rightBottomTimer.start()
+                object: CountDownTimer(buttonCooldowns[rightBottomButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        rightBottomLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        rightBottomLaneStatus.setText(getString(R.string.ready))
+                        rightBottomLaneButton.setColorFilter(null)
+                        rightBottomButtonIsClicked = !rightBottomButtonIsClicked
+                    }
+                }.start()
                 rightBottomLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 rightBottomButtonIsClicked = !rightBottomButtonIsClicked
             }
         }
         leftBottomLaneButton.setOnClickListener {
             if (leftBottomButtonIsClicked) {
-                leftBottomTimer.start()
+                object: CountDownTimer(buttonCooldowns[leftBottomButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        leftBottomLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        leftBottomLaneStatus.setText(getString(R.string.ready))
+                        leftBottomLaneButton.setColorFilter(null)
+                        leftBottomButtonIsClicked = !leftBottomButtonIsClicked
+                    }
+                }.start()
                 leftBottomLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 leftBottomButtonIsClicked = !leftBottomButtonIsClicked
             }
         }
         leftBottomLaneStatus.setOnClickListener {
             if (leftBottomButtonIsClicked) {
-                leftBottomTimer.start()
+                object: CountDownTimer(buttonCooldowns[leftBottomButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        leftBottomLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        leftBottomLaneStatus.setText(getString(R.string.ready))
+                        leftBottomLaneButton.setColorFilter(null)
+                        leftBottomButtonIsClicked = !leftBottomButtonIsClicked
+                    }
+                }.start()
                 leftBottomLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 leftBottomButtonIsClicked = !leftBottomButtonIsClicked
             }
         }
         rightSupportButton.setOnClickListener {
             if (rightSupportButtonIsClicked) {
-                rightSupportTimer.start()
+                object: CountDownTimer(buttonCooldowns[rightSupportButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        rightSupportStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        rightSupportStatus.setText(getString(R.string.ready))
+                        rightSupportButton.setColorFilter(null)
+                        rightSupportButtonIsClicked = !rightSupportButtonIsClicked
+                    }
+                }.start()
                 rightSupportButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 rightSupportButtonIsClicked = !rightSupportButtonIsClicked
             }
         }
         rightSupportStatus.setOnClickListener {
             if (rightSupportButtonIsClicked) {
-                rightSupportTimer.start()
+                object: CountDownTimer(buttonCooldowns[rightSupportButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        rightSupportStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        rightSupportStatus.setText(getString(R.string.ready))
+                        rightSupportButton.setColorFilter(null)
+                        rightSupportButtonIsClicked = !rightSupportButtonIsClicked
+                    }
+                }.start()
                 rightSupportButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 rightSupportButtonIsClicked = !rightSupportButtonIsClicked
             }
         }
         leftSupportButton.setOnClickListener {
             if (leftSupportButtonIsClicked) {
-                leftSupportTimer.start()
+                object: CountDownTimer(buttonCooldowns[leftSupportButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        leftSupportStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        leftSupportStatus.setText(getString(R.string.ready))
+                        leftSupportButton.setColorFilter(null)
+                        leftSupportButtonIsClicked = !leftSupportButtonIsClicked
+                    }
+                }.start()
                 leftSupportButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 leftSupportButtonIsClicked = !leftSupportButtonIsClicked
             }
         }
         leftSupportStatus.setOnClickListener {
             if (leftSupportButtonIsClicked) {
-                leftSupportTimer.start()
+                object: CountDownTimer(buttonCooldowns[leftSupportButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        leftSupportStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        leftSupportStatus.setText(getString(R.string.ready))
+                        leftSupportButton.setColorFilter(null)
+                        leftSupportButtonIsClicked = !leftSupportButtonIsClicked
+                    }
+                }.start()
                 leftSupportButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 leftSupportButtonIsClicked = !leftSupportButtonIsClicked
             }
