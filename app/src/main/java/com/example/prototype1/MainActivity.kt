@@ -31,6 +31,22 @@ class MainActivity : AppCompatActivity() {
         var rightBottomButtonIsClicked = true
         var rightSupportButtonIsClicked = true
 
+        // variables for button choice
+        val buttonCooldowns: HashMap<String, Long> = hashMapOf(
+            "flash" to 300L,
+            "heal" to 240L,
+            "ghost" to 180L,
+            "barrier" to 180L,
+            "exhaust" to 210L,
+            "teleport" to 360L,
+            "smite" to 90L,
+            "cleanse" to 210L,
+            "ignite" to 180L
+        )
+
+        // button type
+        var leftTopButtonType = "teleport"
+
         //create variables for all imagebutton and textview
 
         val rightTopLaneButton = findViewById<ImageButton>(R.id.right_top_lane_button)
@@ -56,16 +72,7 @@ class MainActivity : AppCompatActivity() {
         val resetButton = findViewById<TextView>(R.id.reset_text)
 
         // timer
-        var leftTopTimer = object: CountDownTimer(5000,1000){
-            override fun onTick(millisUntilFinished: Long) {
-                leftTopLaneStatus.setText("${millisUntilFinished/1000 + 1}")
-            }
-            override fun onFinish() {
-                leftTopLaneStatus.setText(getString(R.string.ready))
-                leftTopLaneButton.setColorFilter(null)
-                lefTopButtonIsClicked = !lefTopButtonIsClicked
-            }
-        }
+
         var rightTopTimer = object: CountDownTimer(5000,1000){
             override fun onTick(millisUntilFinished: Long) {
                 rightTopLaneStatus.setText("${millisUntilFinished/1000 + 1}")
@@ -160,6 +167,7 @@ class MainActivity : AppCompatActivity() {
         //button listener
         rightTopLaneButton.setOnClickListener {
             if (rightTopButtonIsClicked) {
+
                 rightTopTimer.start()
                 rightTopLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 rightTopButtonIsClicked = !rightTopButtonIsClicked
@@ -174,14 +182,32 @@ class MainActivity : AppCompatActivity() {
         }
         leftTopLaneButton.setOnClickListener {
             if (lefTopButtonIsClicked) {
-                leftTopTimer.start()
+                object: CountDownTimer(buttonCooldowns[leftTopButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        leftTopLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        leftTopLaneStatus.setText(getString(R.string.ready))
+                        leftTopLaneButton.setColorFilter(null)
+                        lefTopButtonIsClicked = !lefTopButtonIsClicked
+                    }
+                }.start()
                 leftTopLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 lefTopButtonIsClicked = !lefTopButtonIsClicked
             }
         }
         leftTopLaneStatus.setOnClickListener{
             if (lefTopButtonIsClicked) {
-                leftTopTimer.start()
+                object: CountDownTimer(buttonCooldowns[leftTopButtonType]!! * 1000,1000){
+                    override fun onTick(millisUntilFinished: Long) {
+                        leftTopLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                    }
+                    override fun onFinish() {
+                        leftTopLaneStatus.setText(getString(R.string.ready))
+                        leftTopLaneButton.setColorFilter(null)
+                        lefTopButtonIsClicked = !lefTopButtonIsClicked
+                    }
+                }.start()
                 leftTopLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
                 lefTopButtonIsClicked = !lefTopButtonIsClicked
             }
