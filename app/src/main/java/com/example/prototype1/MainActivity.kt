@@ -7,8 +7,6 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.EditText
-import org.w3c.dom.Text
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,285 +20,285 @@ class MainActivity : AppCompatActivity() {
 
         //create variables for button check
 
-        var left_top_button_is_clicked = true
-        var left_mid_button_is_clicked = true
-        var left_jungle_button_is_clicked = true
-        var left_bottom_button_is_clicked = true
-        var left_support_button_is_clicked = true
-        var right_top_button_is_clicked = true
-        var right_mid_button_is_clicked = true
-        var right_jungle_button_is_clicked = true
-        var right_bottom_button_is_clicked = true
-        var right_support_button_is_clicked = true
+        var lefTopButtonIsClicked = true
+        var leftMidButtonIsClicked = true
+        var leftJungleButtonIsClicked = true
+        var leftBottomButtonIsClicked = true
+        var leftSupportButtonIsClicked = true
+        var rightTopButtonIsClicked = true
+        var rightMidButtonIsClicked = true
+        var rightJungleButtonIsClicked = true
+        var rightBottomButtonIsClicked = true
+        var rightSupportButtonIsClicked = true
 
         //create variables for all imagebutton and textview
 
-        val right_top_lane_button = findViewById<ImageButton>(R.id.right_top_lane_button)
-        val right_top_lane_status = findViewById<TextView>(R.id.right_top_lane_status)
-        val left_top_lane_button = findViewById<ImageButton>(R.id.left_top_lane_button)
-        val left_top_lane_status = findViewById<TextView>(R.id.left_top_lane_status)
-        val right_jungle_button = findViewById<ImageButton>(R.id.right_jungle_button)
-        val right_jungle_status = findViewById<TextView>(R.id.right_jungle_status)
-        val left_jungle_button = findViewById<ImageButton>(R.id.left_jungle_button)
-        val left_jungle_status = findViewById<TextView>(R.id.left_jungle_status)
-        val right_mid_lane_button = findViewById<ImageButton>(R.id.right_mid_lane_button)
-        val right_mid_lane_status = findViewById<TextView>(R.id.right_mid_lane_status)
-        val left_mid_lane_button= findViewById<ImageButton>(R.id.left_mid_lane_button)
-        val left_mid_lane_status = findViewById<TextView>(R.id.left_mid_lane_status)
-        val right_bottom_lane_button = findViewById<ImageButton>(R.id.right_bottom_lane_button)
-        val right_bottom_lane_status = findViewById<TextView>(R.id.right_bottom_lane_status )
-        val left_bottom_lane_button= findViewById<ImageButton>(R.id.left_bottom_lane_button)
-        val left_bottom_lane_status  = findViewById<TextView>(R.id.left_bottom_lane_status)
-        val right_support_button = findViewById<ImageButton>(R.id.right_support_button)
-        val right_support_status = findViewById<TextView>(R.id.right_support_status)
-        val left_support_button= findViewById<ImageButton>(R.id.left_support_button)
-        val left_support_status  = findViewById<TextView>(R.id.left_support_status)
-        val reset_button = findViewById<TextView>(R.id.reset_text)
+        val rightTopLaneButton = findViewById<ImageButton>(R.id.right_top_lane_button)
+        val rightTopLaneStatus = findViewById<TextView>(R.id.right_top_lane_status)
+        val leftTopLaneButton = findViewById<ImageButton>(R.id.left_top_lane_button)
+        val leftTopLaneStatus = findViewById<TextView>(R.id.left_top_lane_status)
+        val rightJungleButton = findViewById<ImageButton>(R.id.right_jungle_button)
+        val rightJungleStatus = findViewById<TextView>(R.id.right_jungle_status)
+        val leftJungleButton = findViewById<ImageButton>(R.id.left_jungle_button)
+        val leftJungleStatus = findViewById<TextView>(R.id.left_jungle_status)
+        val rightMidLaneButton = findViewById<ImageButton>(R.id.right_mid_lane_button)
+        val rightMidLaneStatus = findViewById<TextView>(R.id.right_mid_lane_status)
+        val leftMidLaneButton= findViewById<ImageButton>(R.id.left_mid_lane_button)
+        val leftMidLaneStatus = findViewById<TextView>(R.id.left_mid_lane_status)
+        val rightBottomLaneButton = findViewById<ImageButton>(R.id.right_bottom_lane_button)
+        val rightBottomLaneStatus = findViewById<TextView>(R.id.right_bottom_lane_status )
+        val leftBottomLaneButton= findViewById<ImageButton>(R.id.left_bottom_lane_button)
+        val leftBottomLaneStatus  = findViewById<TextView>(R.id.left_bottom_lane_status)
+        val rightSupportButton = findViewById<ImageButton>(R.id.right_support_button)
+        val rightSupportStatus = findViewById<TextView>(R.id.right_support_status)
+        val leftSupportButton= findViewById<ImageButton>(R.id.left_support_button)
+        val leftSupportStatus  = findViewById<TextView>(R.id.left_support_status)
+        val resetButton = findViewById<TextView>(R.id.reset_text)
 
         // timer
         var leftTopTimer = object: CountDownTimer(5000,1000){
             override fun onTick(millisUntilFinished: Long) {
-                left_top_lane_status.setText("${millisUntilFinished/1000 + 1}")
+                leftTopLaneStatus.setText("${millisUntilFinished/1000 + 1}")
             }
             override fun onFinish() {
-                left_top_lane_status.setText(getString(R.string.ready))
-                left_top_lane_button.setColorFilter(null)
-                left_top_button_is_clicked = !left_top_button_is_clicked
+                leftTopLaneStatus.setText(getString(R.string.ready))
+                leftTopLaneButton.setColorFilter(null)
+                lefTopButtonIsClicked = !lefTopButtonIsClicked
             }
         }
         var rightTopTimer = object: CountDownTimer(5000,1000){
             override fun onTick(millisUntilFinished: Long) {
-                right_top_lane_status.setText("${millisUntilFinished/1000 + 1}")
+                rightTopLaneStatus.setText("${millisUntilFinished/1000 + 1}")
             }
             override fun onFinish() {
-                right_top_lane_status.setText(getString(R.string.ready))
-                right_top_lane_button.setColorFilter(null)
-                right_top_button_is_clicked = !right_top_button_is_clicked
+                rightTopLaneStatus.setText(getString(R.string.ready))
+                rightTopLaneButton.setColorFilter(null)
+                rightTopButtonIsClicked = !rightTopButtonIsClicked
             }
         }
         var leftJungleTimer = object: CountDownTimer(5000,1000){
             override fun onTick(millisUntilFinished: Long) {
-                left_jungle_status.setText("${millisUntilFinished/1000 + 1}")
+                leftJungleStatus.setText("${millisUntilFinished/1000 + 1}")
             }
             override fun onFinish() {
-                left_jungle_status.setText(getString(R.string.ready))
-                left_jungle_button.setColorFilter(null)
-                left_jungle_button_is_clicked = !left_jungle_button_is_clicked
+                leftJungleStatus.setText(getString(R.string.ready))
+                leftJungleButton.setColorFilter(null)
+                leftJungleButtonIsClicked = !leftJungleButtonIsClicked
             }
         }
         var rightJungleTimer = object: CountDownTimer(5000,1000){
             override fun onTick(millisUntilFinished: Long) {
-                right_jungle_status.setText("${millisUntilFinished/1000 + 1}")
+                rightJungleStatus.setText("${millisUntilFinished/1000 + 1}")
             }
             override fun onFinish() {
-                right_jungle_status.setText(getString(R.string.ready))
-                right_jungle_button.setColorFilter(null)
-                right_jungle_button_is_clicked = !right_jungle_button_is_clicked
+                rightJungleStatus.setText(getString(R.string.ready))
+                rightJungleButton.setColorFilter(null)
+                rightJungleButtonIsClicked = !rightJungleButtonIsClicked
             }
         }
         var leftMiddleTimer = object: CountDownTimer(5000,1000){
             override fun onTick(millisUntilFinished: Long) {
-                left_mid_lane_status.setText("${millisUntilFinished/1000 + 1}")
+                leftMidLaneStatus.setText("${millisUntilFinished/1000 + 1}")
             }
             override fun onFinish() {
-                left_mid_lane_status.setText(getString(R.string.ready))
-                left_mid_lane_button.setColorFilter(null)
-                left_mid_button_is_clicked = !left_mid_button_is_clicked
+                leftMidLaneStatus.setText(getString(R.string.ready))
+                leftMidLaneButton.setColorFilter(null)
+                leftMidButtonIsClicked = !leftMidButtonIsClicked
             }
         }
         var rightMiddleTimer = object: CountDownTimer(5000,1000){
             override fun onTick(millisUntilFinished: Long) {
-                right_mid_lane_status.setText("${millisUntilFinished/1000 + 1}")
+                rightMidLaneStatus.setText("${millisUntilFinished/1000 + 1}")
             }
             override fun onFinish() {
-                right_mid_lane_status.setText(getString(R.string.ready))
-                right_mid_lane_button.setColorFilter(null)
-                right_mid_button_is_clicked = !right_mid_button_is_clicked
+                rightMidLaneStatus.setText(getString(R.string.ready))
+                rightMidLaneButton.setColorFilter(null)
+                rightMidButtonIsClicked = !rightMidButtonIsClicked
             }
         }
         var leftBottomTimer = object: CountDownTimer(5000,1000){
             override fun onTick(millisUntilFinished: Long) {
-                left_bottom_lane_status.setText("${millisUntilFinished/1000 + 1}")
+                leftBottomLaneStatus.setText("${millisUntilFinished/1000 + 1}")
             }
             override fun onFinish() {
-                left_bottom_lane_status.setText(getString(R.string.ready))
-                left_bottom_lane_button.setColorFilter(null)
-                left_bottom_button_is_clicked = !left_bottom_button_is_clicked
+                leftBottomLaneStatus.setText(getString(R.string.ready))
+                leftBottomLaneButton.setColorFilter(null)
+                leftBottomButtonIsClicked = !leftBottomButtonIsClicked
             }
         }
         var rightBottomTimer = object: CountDownTimer(5000,1000){
             override fun onTick(millisUntilFinished: Long) {
-                right_bottom_lane_status.setText("${millisUntilFinished/1000 + 1}")
+                rightBottomLaneStatus.setText("${millisUntilFinished/1000 + 1}")
             }
             override fun onFinish() {
-                right_bottom_lane_status.setText(getString(R.string.ready))
-                right_bottom_lane_button.setColorFilter(null)
-                right_bottom_button_is_clicked = !right_bottom_button_is_clicked
+                rightBottomLaneStatus.setText(getString(R.string.ready))
+                rightBottomLaneButton.setColorFilter(null)
+                rightBottomButtonIsClicked = !rightBottomButtonIsClicked
             }
         }
         var leftSupportTimer = object: CountDownTimer(5000,1000){
             override fun onTick(millisUntilFinished: Long) {
-                left_support_status.setText("${millisUntilFinished/1000 + 1}")
+                leftSupportStatus.setText("${millisUntilFinished/1000 + 1}")
             }
             override fun onFinish() {
-                left_support_status.setText(getString(R.string.ready))
-                left_support_button.setColorFilter(null)
-                left_support_button_is_clicked = !left_support_button_is_clicked
+                leftSupportStatus.setText(getString(R.string.ready))
+                leftSupportButton.setColorFilter(null)
+                leftSupportButtonIsClicked = !leftSupportButtonIsClicked
             }
         }
         var rightSupportTimer = object: CountDownTimer(5000,1000){
             override fun onTick(millisUntilFinished: Long) {
-                right_support_status.setText("${millisUntilFinished/1000 + 1}")
+                rightSupportStatus.setText("${millisUntilFinished/1000 + 1}")
             }
             override fun onFinish() {
-                right_support_status.setText(getString(R.string.ready))
-                right_support_button.setColorFilter(null)
-                right_support_button_is_clicked = !right_support_button_is_clicked
+                rightSupportStatus.setText(getString(R.string.ready))
+                rightSupportButton.setColorFilter(null)
+                rightSupportButtonIsClicked = !rightSupportButtonIsClicked
             }
         }
 
         //button listener
-        right_top_lane_button.setOnClickListener {
-            if (right_top_button_is_clicked) {
+        rightTopLaneButton.setOnClickListener {
+            if (rightTopButtonIsClicked) {
                 rightTopTimer.start()
-                right_top_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                right_top_button_is_clicked = !right_top_button_is_clicked
+                rightTopLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                rightTopButtonIsClicked = !rightTopButtonIsClicked
             }
         }
-        right_top_lane_status.setOnClickListener{
-            if (right_top_button_is_clicked) {
+        rightTopLaneStatus.setOnClickListener{
+            if (rightTopButtonIsClicked) {
                 rightTopTimer.start()
-                right_top_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                right_top_button_is_clicked = !right_top_button_is_clicked
+                rightTopLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                rightTopButtonIsClicked = !rightTopButtonIsClicked
             }
         }
-        left_top_lane_button.setOnClickListener {
-            if (left_top_button_is_clicked) {
+        leftTopLaneButton.setOnClickListener {
+            if (lefTopButtonIsClicked) {
                 leftTopTimer.start()
-                left_top_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                left_top_button_is_clicked = !left_top_button_is_clicked
+                leftTopLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                lefTopButtonIsClicked = !lefTopButtonIsClicked
             }
         }
-        left_top_lane_status.setOnClickListener{
-            if (left_top_button_is_clicked) {
+        leftTopLaneStatus.setOnClickListener{
+            if (lefTopButtonIsClicked) {
                 leftTopTimer.start()
-                left_top_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                left_top_button_is_clicked = !left_top_button_is_clicked
+                leftTopLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                lefTopButtonIsClicked = !lefTopButtonIsClicked
             }
         }
-        right_jungle_button.setOnClickListener {
-            if (right_jungle_button_is_clicked) {
+        rightJungleButton.setOnClickListener {
+            if (rightJungleButtonIsClicked) {
                 rightJungleTimer.start()
-                right_jungle_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                right_jungle_button_is_clicked = !right_jungle_button_is_clicked
+                rightJungleButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                rightJungleButtonIsClicked = !rightJungleButtonIsClicked
             }
         }
-        right_jungle_status.setOnClickListener{
-            if (right_jungle_button_is_clicked) {
+        rightJungleStatus.setOnClickListener{
+            if (rightJungleButtonIsClicked) {
                 rightJungleTimer.start()
-                right_jungle_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                right_jungle_button_is_clicked = !right_jungle_button_is_clicked
+                rightJungleButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                rightJungleButtonIsClicked = !rightJungleButtonIsClicked
             }
         }
-        left_jungle_button.setOnClickListener {
-            if (left_jungle_button_is_clicked) {
+        leftJungleButton.setOnClickListener {
+            if (leftJungleButtonIsClicked) {
                 leftJungleTimer.start()
-                left_jungle_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                left_jungle_button_is_clicked = !left_jungle_button_is_clicked
+                leftJungleButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                leftJungleButtonIsClicked = !leftJungleButtonIsClicked
             }
         }
-        left_jungle_status.setOnClickListener {
-            if (left_jungle_button_is_clicked) {
+        leftJungleStatus.setOnClickListener {
+            if (leftJungleButtonIsClicked) {
                 leftJungleTimer.start()
-                left_jungle_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                left_jungle_button_is_clicked = !left_jungle_button_is_clicked
+                leftJungleButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                leftJungleButtonIsClicked = !leftJungleButtonIsClicked
             }
         }
-        right_mid_lane_button.setOnClickListener {
-            if (right_mid_button_is_clicked) {
+        rightMidLaneButton.setOnClickListener {
+            if (rightMidButtonIsClicked) {
                 rightMiddleTimer.start()
-                right_mid_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                right_mid_button_is_clicked = !right_mid_button_is_clicked
+                rightMidLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                rightMidButtonIsClicked = !rightMidButtonIsClicked
             }
         }
-        right_mid_lane_status.setOnClickListener {
-            if (right_mid_button_is_clicked) {
+        rightMidLaneStatus.setOnClickListener {
+            if (rightMidButtonIsClicked) {
                 rightMiddleTimer.start()
-                right_mid_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                right_mid_button_is_clicked = !right_mid_button_is_clicked
+                rightMidLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                rightMidButtonIsClicked = !rightMidButtonIsClicked
             }
         }
-        left_mid_lane_button.setOnClickListener {
-            if (left_mid_button_is_clicked) {
+        leftMidLaneButton.setOnClickListener {
+            if (leftMidButtonIsClicked) {
                 leftMiddleTimer.start()
-                left_mid_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                left_mid_button_is_clicked = !left_mid_button_is_clicked
+                leftMidLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                leftMidButtonIsClicked = !leftMidButtonIsClicked
             }
         }
-        left_mid_lane_status.setOnClickListener {
-            if (left_mid_button_is_clicked) {
+        leftMidLaneStatus.setOnClickListener {
+            if (leftMidButtonIsClicked) {
                 leftMiddleTimer.start()
-                left_mid_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                left_mid_button_is_clicked = !left_mid_button_is_clicked
+                leftMidLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                leftMidButtonIsClicked = !leftMidButtonIsClicked
             }
         }
-        right_bottom_lane_button.setOnClickListener {
-            if (right_bottom_button_is_clicked) {
+        rightBottomLaneButton.setOnClickListener {
+            if (rightBottomButtonIsClicked) {
                 rightBottomTimer.start()
-                right_bottom_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                right_bottom_button_is_clicked = !right_bottom_button_is_clicked
+                rightBottomLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                rightBottomButtonIsClicked = !rightBottomButtonIsClicked
             }
         }
-        right_bottom_lane_status.setOnClickListener {
-            if (right_bottom_button_is_clicked) {
+        rightBottomLaneStatus.setOnClickListener {
+            if (rightBottomButtonIsClicked) {
                 rightBottomTimer.start()
-                right_bottom_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                right_bottom_button_is_clicked = !right_bottom_button_is_clicked
+                rightBottomLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                rightBottomButtonIsClicked = !rightBottomButtonIsClicked
             }
         }
-        left_bottom_lane_button.setOnClickListener {
-            if (left_bottom_button_is_clicked) {
+        leftBottomLaneButton.setOnClickListener {
+            if (leftBottomButtonIsClicked) {
                 leftBottomTimer.start()
-                left_bottom_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                left_bottom_button_is_clicked = !left_bottom_button_is_clicked
+                leftBottomLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                leftBottomButtonIsClicked = !leftBottomButtonIsClicked
             }
         }
-        left_bottom_lane_status.setOnClickListener {
-            if (left_bottom_button_is_clicked) {
+        leftBottomLaneStatus.setOnClickListener {
+            if (leftBottomButtonIsClicked) {
                 leftBottomTimer.start()
-                left_bottom_lane_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                left_bottom_button_is_clicked = !left_bottom_button_is_clicked
+                leftBottomLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                leftBottomButtonIsClicked = !leftBottomButtonIsClicked
             }
         }
-        right_support_button.setOnClickListener {
-            if (right_support_button_is_clicked) {
+        rightSupportButton.setOnClickListener {
+            if (rightSupportButtonIsClicked) {
                 rightSupportTimer.start()
-                right_support_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                right_support_button_is_clicked = !right_support_button_is_clicked
+                rightSupportButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                rightSupportButtonIsClicked = !rightSupportButtonIsClicked
             }
         }
-        right_support_status.setOnClickListener {
-            if (right_support_button_is_clicked) {
+        rightSupportStatus.setOnClickListener {
+            if (rightSupportButtonIsClicked) {
                 rightSupportTimer.start()
-                right_support_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                right_support_button_is_clicked = !right_support_button_is_clicked
+                rightSupportButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                rightSupportButtonIsClicked = !rightSupportButtonIsClicked
             }
         }
-        left_support_button.setOnClickListener {
-            if (left_support_button_is_clicked) {
+        leftSupportButton.setOnClickListener {
+            if (leftSupportButtonIsClicked) {
                 leftSupportTimer.start()
-                left_support_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                left_support_button_is_clicked = !left_support_button_is_clicked
+                leftSupportButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                leftSupportButtonIsClicked = !leftSupportButtonIsClicked
             }
         }
-        left_support_status.setOnClickListener {
-            if (left_support_button_is_clicked) {
+        leftSupportStatus.setOnClickListener {
+            if (leftSupportButtonIsClicked) {
                 leftSupportTimer.start()
-                left_support_button.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                left_support_button_is_clicked = !left_support_button_is_clicked
+                leftSupportButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+                leftSupportButtonIsClicked = !leftSupportButtonIsClicked
             }
         }
-        reset_button.setOnClickListener {
+        resetButton.setOnClickListener {
             recreate()
         }
     }
