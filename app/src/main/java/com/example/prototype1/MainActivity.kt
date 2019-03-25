@@ -13,6 +13,8 @@ import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var timer: CountDownTimer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -125,26 +127,25 @@ class MainActivity : AppCompatActivity() {
 
     fun toggle_timer(text: TextView, imageButton: ImageButton, button_is_clicked: Boolean): Boolean {
         var toggle_active = button_is_clicked
-        val countdowntimer = object :CountDownTimer(5000,1000){
-            override fun onTick(millisUntilFinished: Long) {
-                imageButton.setEnabled(false)
-                text.setEnabled(false)
-            }
-            override fun onFinish(){
-                text.setText(getString(R.string.ready))
-                imageButton.setColorFilter(null)
-                imageButton.setEnabled(true)
-                text.setEnabled(true)
-            }
-        }
         if (toggle_active) {
-            countdowntimer.start()
-            imageButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-        } else {
-            countdowntimer.onFinish()
+            startTimer(text, imageButton)
         }
         toggle_active = !toggle_active
         return toggle_active
+        //deleted the else argument since we no longer need it, kept the boolean toogle_active to make the onLongPress function next
+    }
+    //made the proper timer function, so i can use it as callbacks later with onResume and onPause
+    fun startTimer(text: TextView, imageButton: ImageButton){
+        timer = object: CountDownTimer(5000,1000){
+            override fun onTick(millisUntilFinished: Long) {
+                text.setText(getString(R.string.cooldown))
+                imageButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+            }
+            override fun onFinish() {
+                text.setText(getString(R.string.ready))
+                imageButton.setColorFilter(null)
+            }
+        }.start()
     }
 }
 
