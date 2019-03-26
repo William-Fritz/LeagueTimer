@@ -56,6 +56,8 @@ class MainActivity : AppCompatActivity() {
         var leftSupportButtonType = "flash"
         var rightSupportButtonType = "exhaust"
 
+
+
         //create variables for all imagebutton and textview
 
         val rightTopLaneButton = findViewById<ImageButton>(R.id.right_top_lane_button)
@@ -85,11 +87,15 @@ class MainActivity : AppCompatActivity() {
             if (rightTopButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[rightTopButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        rightTopLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        rightTopLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
-                        rightTopLaneStatus.setText(getString(R.string.ready))
-                        rightTopLaneButton.setColorFilter(null)
+                        rightTopLaneStatus.text = (getString(R.string.ready))
+                        rightTopLaneButton.colorFilter = null
                         rightTopButtonIsClicked = !rightTopButtonIsClicked
                     }
                 }.start()
@@ -101,7 +107,11 @@ class MainActivity : AppCompatActivity() {
             if (rightTopButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[rightTopButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        rightTopLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        rightTopLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         rightTopLaneStatus.setText(getString(R.string.ready))
@@ -117,7 +127,11 @@ class MainActivity : AppCompatActivity() {
             if (lefTopButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[leftTopButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        leftTopLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        leftTopLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         leftTopLaneStatus.setText(getString(R.string.ready))
@@ -133,7 +147,11 @@ class MainActivity : AppCompatActivity() {
             if (lefTopButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[leftTopButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        leftTopLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        leftTopLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         leftTopLaneStatus.setText(getString(R.string.ready))
@@ -149,7 +167,11 @@ class MainActivity : AppCompatActivity() {
             if (rightJungleButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[rightJungleButtonType]!! * 1000,1000) {
                     override fun onTick(millisUntilFinished: Long) {
-                        rightJungleStatus.setText("${millisUntilFinished / 1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        rightJungleStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         rightJungleStatus.setText(getString(R.string.ready))
@@ -165,7 +187,11 @@ class MainActivity : AppCompatActivity() {
             if (rightJungleButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[rightJungleButtonType]!! * 1000,1000) {
                     override fun onTick(millisUntilFinished: Long) {
-                        rightJungleStatus.setText("${millisUntilFinished / 1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        rightJungleStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         rightJungleStatus.setText(getString(R.string.ready))
@@ -179,9 +205,13 @@ class MainActivity : AppCompatActivity() {
         }
         leftJungleButton.setOnClickListener {
             if (leftJungleButtonIsClicked) {
-                object: CountDownTimer(buttonCooldowns[leftTopButtonType]!! * 1000,1000){
+                object: CountDownTimer(buttonCooldowns[leftJungleButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        leftJungleStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        leftJungleStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         leftJungleStatus.setText(getString(R.string.ready))
@@ -195,14 +225,18 @@ class MainActivity : AppCompatActivity() {
         }
         leftJungleStatus.setOnClickListener {
             if (leftJungleButtonIsClicked) {
-                object: CountDownTimer(buttonCooldowns[leftTopButtonType]!! * 1000,1000){
+                object: CountDownTimer(buttonCooldowns[leftJungleButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        leftMidLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        leftJungleStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
-                        leftMidLaneStatus.setText(getString(R.string.ready))
-                        leftMidLaneButton.setColorFilter(null)
-                        leftMidButtonIsClicked = !leftMidButtonIsClicked
+                        leftJungleStatus.setText(getString(R.string.ready))
+                        leftJungleButton.setColorFilter(null)
+                        leftJungleButtonIsClicked = !leftJungleButtonIsClicked
                     }
                 }.start()
                 leftJungleButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
@@ -213,7 +247,11 @@ class MainActivity : AppCompatActivity() {
             if (rightMidButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[rightMidButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        rightMidLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        rightMidLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         rightMidLaneStatus.setText(getString(R.string.ready))
@@ -229,7 +267,11 @@ class MainActivity : AppCompatActivity() {
             if (rightMidButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[rightMidButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        rightMidLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        rightMidLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         rightMidLaneStatus.setText(getString(R.string.ready))
@@ -245,7 +287,11 @@ class MainActivity : AppCompatActivity() {
             if (leftMidButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[leftMidButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        leftMidLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        leftMidLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         leftMidLaneStatus.setText(getString(R.string.ready))
@@ -261,7 +307,11 @@ class MainActivity : AppCompatActivity() {
             if (leftMidButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[leftMidButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        leftMidLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        leftMidLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         leftMidLaneStatus.setText(getString(R.string.ready))
@@ -277,7 +327,11 @@ class MainActivity : AppCompatActivity() {
             if (rightBottomButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[rightBottomButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        rightBottomLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        rightBottomLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         rightBottomLaneStatus.setText(getString(R.string.ready))
@@ -293,7 +347,11 @@ class MainActivity : AppCompatActivity() {
             if (rightBottomButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[rightBottomButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        rightBottomLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        rightBottomLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         rightBottomLaneStatus.setText(getString(R.string.ready))
@@ -309,7 +367,11 @@ class MainActivity : AppCompatActivity() {
             if (leftBottomButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[leftBottomButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        leftBottomLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        leftBottomLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         leftBottomLaneStatus.setText(getString(R.string.ready))
@@ -325,7 +387,11 @@ class MainActivity : AppCompatActivity() {
             if (leftBottomButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[leftBottomButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        leftBottomLaneStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        leftBottomLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         leftBottomLaneStatus.setText(getString(R.string.ready))
@@ -341,7 +407,11 @@ class MainActivity : AppCompatActivity() {
             if (rightSupportButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[rightSupportButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        rightSupportStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        rightSupportStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         rightSupportStatus.setText(getString(R.string.ready))
@@ -357,7 +427,11 @@ class MainActivity : AppCompatActivity() {
             if (rightSupportButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[rightSupportButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        rightSupportStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        rightSupportStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         rightSupportStatus.setText(getString(R.string.ready))
@@ -373,7 +447,11 @@ class MainActivity : AppCompatActivity() {
             if (leftSupportButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[leftSupportButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        leftSupportStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        leftSupportStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         leftSupportStatus.setText(getString(R.string.ready))
@@ -389,7 +467,11 @@ class MainActivity : AppCompatActivity() {
             if (leftSupportButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[leftSupportButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
-                        leftSupportStatus.setText("${millisUntilFinished/1000 + 1}")
+                        var secondsRemaining = millisUntilFinished / 1000
+                        var minutesRemaining = secondsRemaining / 60
+                        var timeRemainingInSeconds = secondsRemaining - minutesRemaining * 60
+                        var secondsAsStr = timeRemainingInSeconds.toString()
+                        leftSupportStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
                     }
                     override fun onFinish() {
                         leftSupportStatus.setText(getString(R.string.ready))
