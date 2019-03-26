@@ -49,14 +49,15 @@
                 app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintBottom_toTopOf="@id/jungle_layout">
             <TextView
                     android:text="@string/ready"
-                    android:layout_width="wrap_content"
+                    android:layout_width="55dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/left_top_lane_status"
                     android:fontFamily="sans-serif-light"
                     android:textSize="20sp"
                     android:textAllCaps="false"
                     android:contentDescription="@string/main_text"
-                    android:textColor="@android:color/white" android:layout_marginStart="10dp"/>
+                    android:textColor="@android:color/white" android:layout_marginStart="10dp"
+                    android:textAlignment="center"/>
             <ImageButton
                     android:layout_width="35dp"
                     android:layout_height="36dp"
@@ -71,7 +72,7 @@
                     android:contextClickable="false" android:layout_marginStart="30dp"/>
             <TextView
                     android:text="@string/ready"
-                    android:layout_width="wrap_content"
+                    android:layout_width="55dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/right_top_lane_status"
                     android:fontFamily="sans-serif-light"
@@ -79,7 +80,7 @@
                     android:textAllCaps="false"
                     android:contentDescription="@string/main_text"
                     android:textColor="@android:color/white"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginStart="50dp" android:textAlignment="center"/>
             <ImageButton
                     android:layout_width="35dp"
                     android:layout_height="36dp"
@@ -108,14 +109,15 @@
                 app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent">
             <TextView
                     android:text="@string/ready"
-                    android:layout_width="wrap_content"
+                    android:layout_width="55dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/left_jungle_status"
                     android:fontFamily="sans-serif-light"
                     android:textSize="20sp"
                     android:textAllCaps="false"
                     android:contentDescription="@string/main_text"
-                    android:textColor="@android:color/white" android:layout_marginStart="10dp"/>
+                    android:textColor="@android:color/white" android:layout_marginStart="10dp"
+                    android:textAlignment="center"/>
             <ImageButton
                     android:layout_width="35dp"
                     android:layout_height="36dp"
@@ -130,7 +132,7 @@
                     android:contextClickable="false" android:layout_marginStart="30dp"/>
             <TextView
                     android:text="@string/ready"
-                    android:layout_width="wrap_content"
+                    android:layout_width="55dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/right_jungle_status"
                     android:fontFamily="sans-serif-light"
@@ -138,7 +140,7 @@
                     android:textAllCaps="false"
                     android:contentDescription="@string/main_text"
                     android:textColor="@android:color/white"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginStart="50dp" android:textAlignment="center"/>
             <ImageButton
                     android:layout_width="35dp"
                     android:layout_height="36dp"
@@ -166,14 +168,15 @@
                 app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent">
             <TextView
                     android:text="@string/ready"
-                    android:layout_width="wrap_content"
+                    android:layout_width="55dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/left_mid_lane_status"
                     android:fontFamily="sans-serif-light"
                     android:textSize="20sp"
                     android:textAllCaps="false"
                     android:contentDescription="@string/main_text"
-                    android:textColor="@android:color/white" android:layout_marginStart="10dp"/>
+                    android:textColor="@android:color/white" android:layout_marginStart="10dp"
+                    android:textAlignment="center"/>
             <ImageButton
                     android:layout_width="35dp"
                     android:layout_height="36dp"
@@ -188,7 +191,7 @@
                     android:contextClickable="false" android:layout_marginStart="30dp"/>
             <TextView
                     android:text="@string/ready"
-                    android:layout_width="wrap_content"
+                    android:layout_width="55dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/right_mid_lane_status"
                     android:fontFamily="sans-serif-light"
@@ -196,7 +199,7 @@
                     android:textAllCaps="false"
                     android:contentDescription="@string/main_text"
                     android:textColor="@android:color/white"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginStart="50dp" android:textAlignment="center"/>
             <ImageButton
                     android:layout_width="35dp"
                     android:layout_height="36dp"
@@ -224,14 +227,15 @@
                 app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent">
             <TextView
                     android:text="@string/ready"
-                    android:layout_width="wrap_content"
+                    android:layout_width="55dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/left_bottom_lane_status"
                     android:fontFamily="sans-serif-light"
                     android:textSize="20sp"
                     android:textAllCaps="false"
                     android:contentDescription="@string/main_text"
-                    android:textColor="@android:color/white" android:layout_marginStart="10dp"/>
+                    android:textColor="@android:color/white" android:layout_marginStart="10dp"
+                    android:textAlignment="center"/>
             <ImageButton
                     android:layout_width="35dp"
                     android:layout_height="36dp"
@@ -246,7 +250,7 @@
                     android:contextClickable="false" android:layout_marginStart="30dp"/>
             <TextView
                     android:text="@string/ready"
-                    android:layout_width="wrap_content"
+                    android:layout_width="55dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/right_bottom_lane_status"
                     android:fontFamily="sans-serif-light"
@@ -254,7 +258,7 @@
                     android:textAllCaps="false"
                     android:contentDescription="@string/main_text"
                     android:textColor="@android:color/white"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginStart="50dp" android:textAlignment="center"/>
             <ImageButton
                     android:layout_width="35dp"
                     android:layout_height="36dp"
@@ -282,14 +286,15 @@
                 app:layout_constraintRight_toRightOf="parent" app:layout_constraintBottom_toBottomOf="parent">
             <TextView
                     android:text="@string/ready"
-                    android:layout_width="wrap_content"
+                    android:layout_width="55dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/left_support_status"
                     android:fontFamily="sans-serif-light"
                     android:textSize="20sp"
                     android:textAllCaps="false"
                     android:contentDescription="@string/main_text"
-                    android:textColor="@android:color/white" android:layout_marginStart="10dp"/>
+                    android:textColor="@android:color/white" android:layout_marginStart="10dp"
+                    android:textAlignment="center"/>
             <ImageButton
                     android:layout_width="35dp"
                     android:layout_height="36dp"
@@ -304,7 +309,7 @@
                     android:contextClickable="false" android:layout_marginStart="30dp"/>
             <TextView
                     android:text="@string/ready"
-                    android:layout_width="wrap_content"
+                    android:layout_width="55dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/right_support_status"
                     android:fontFamily="sans-serif-light"
@@ -312,7 +317,7 @@
                     android:textAllCaps="false"
                     android:contentDescription="@string/main_text"
                     android:textColor="@android:color/white"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginStart="50dp" android:textAlignment="center"/>
             <ImageButton
                     android:layout_width="35dp"
                     android:layout_height="36dp"
