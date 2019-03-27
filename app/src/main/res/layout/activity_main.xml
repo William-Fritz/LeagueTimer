@@ -38,7 +38,7 @@
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="@id/main_layout"
@@ -47,58 +47,81 @@
                 android:layout_marginStart="8dp"
                 android:id="@+id/top_lane_layout" app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintBottom_toTopOf="@id/jungle_layout">
-            <TextView
-                    android:text="@string/ready"
-                    android:layout_width="55dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/left_top_lane_status"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="20sp"
-                    android:textAllCaps="false"
-                    android:contentDescription="@string/main_text"
-                    android:textColor="@android:color/white" android:layout_marginStart="10dp"
-                    android:textAlignment="center"/>
-            <ImageButton
-                    android:layout_width="35dp"
-                    android:layout_height="36dp"
-                    android:scaleType="centerCrop"
-                    android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/teleport"
-                    android:id="@+id/left_top_lane_button"
-                    android:padding="0dp"
-                    android:layout_marginEnd="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:contentDescription="@string/main_button"
-                    android:contextClickable="false" android:layout_marginStart="30dp"/>
-            <TextView
-                    android:text="@string/ready"
-                    android:layout_width="55dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/right_top_lane_status"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="20sp"
-                    android:textAllCaps="false"
-                    android:contentDescription="@string/main_text"
-                    android:textColor="@android:color/white"
-                    android:layout_marginStart="50dp" android:textAlignment="center"/>
-            <ImageButton
-                    android:layout_width="35dp"
-                    android:layout_height="36dp"
-                    android:scaleType="centerCrop"
-                    android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/flash"
-                    android:id="@+id/right_top_lane_button"
-                    android:padding="0dp"
-                    android:contentDescription="@string/main_button"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:contextClickable="false" android:layout_marginStart="30dp"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/left_top_layout"
+                    app:layout_constraintBottom_toBottomOf="@id/top_lane_layout"
+                    app:layout_constraintStart_toStartOf="@id/top_lane_layout"
+                    app:layout_constraintEnd_toStartOf="@id/right_top_layout"
+                    app:layout_constraintTop_toTopOf="@id/top_lane_layout"
+            >
+                <TextView
+                        android:text="@string/ready"
+                        android:layout_width="55dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/left_top_lane_status"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="20sp"
+                        android:textAllCaps="false"
+                        android:contentDescription="@string/main_text"
+                        android:textColor="@android:color/white" android:layout_marginStart="10dp"
+                        android:textAlignment="center" android:layout_marginTop="10dp"/>
+                <ImageButton
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/teleport"
+                        android:id="@+id/left_top_lane_button"
+                        android:padding="0dp"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:contentDescription="@string/main_button"
+                        android:contextClickable="false" android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="205dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="@id/top_lane_layout"
+                    app:layout_constraintEnd_toEndOf="@id/top_lane_layout"
+                    app:layout_constraintTop_toTopOf="@id/top_lane_layout"
+                    android:id="@+id/right_top_layout" android:layout_marginStart="20dp">
+                <TextView
+                        android:text="@string/ready"
+                        android:layout_width="55dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/right_top_lane_status"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="20sp"
+                        android:textAllCaps="false"
+                        android:contentDescription="@string/main_text"
+                        android:textColor="@android:color/white"
+                        android:layout_marginStart="20dp" android:textAlignment="center"
+                        android:layout_marginTop="10dp"/>
+                <ImageButton
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/flash"
+                        android:id="@+id/right_top_lane_button"
+                        android:padding="0dp"
+                        android:contentDescription="@string/main_button"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:contextClickable="false" android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"/>
+            </LinearLayout>
 
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="26dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/top_lane_layout"
@@ -107,58 +130,71 @@
                 android:id="@+id/jungle_layout"
                 app:layout_constraintBottom_toTopOf="@id/mid_lane_layout"
                 app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent">
-            <TextView
-                    android:text="@string/ready"
-                    android:layout_width="55dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/left_jungle_status"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="20sp"
-                    android:textAllCaps="false"
-                    android:contentDescription="@string/main_text"
-                    android:textColor="@android:color/white" android:layout_marginStart="10dp"
-                    android:textAlignment="center"/>
-            <ImageButton
-                    android:layout_width="35dp"
-                    android:layout_height="36dp"
-                    android:scaleType="centerCrop"
-                    android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/smite"
-                    android:id="@+id/left_jungle_button"
-                    android:padding="0dp"
-                    android:layout_marginEnd="10dp"
-                    android:contentDescription="@string/main_button"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:contextClickable="false" android:layout_marginStart="30dp"/>
-            <TextView
-                    android:text="@string/ready"
-                    android:layout_width="55dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/right_jungle_status"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="20sp"
-                    android:textAllCaps="false"
-                    android:contentDescription="@string/main_text"
-                    android:textColor="@android:color/white"
-                    android:layout_marginStart="50dp" android:textAlignment="center"/>
-            <ImageButton
-                    android:layout_width="35dp"
-                    android:layout_height="36dp"
-                    android:scaleType="centerCrop"
-                    android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/flash"
-                    android:id="@+id/right_jungle_button"
-                    android:padding="0dp"
-                    android:contentDescription="@string/main_button"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:contextClickable="false" android:layout_marginStart="30dp"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent" android:layout_width="155dp"
+                    android:id="@+id/left_jungle_layout">
+                <TextView
+                        android:text="@string/ready"
+                        android:layout_width="55dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/left_jungle_status"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="20sp"
+                        android:textAllCaps="false"
+                        android:contentDescription="@string/main_text"
+                        android:textColor="@android:color/white" android:layout_marginStart="10dp"
+                        android:textAlignment="center" android:layout_marginTop="10dp"/>
+                <ImageButton
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/smite"
+                        android:id="@+id/left_jungle_button"
+                        android:padding="0dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/main_button"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:contextClickable="false" android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent" android:layout_width="205dp" android:layout_marginStart="20dp"
+                    android:id="@+id/right_jungle_layout">
+                <TextView
+                        android:text="@string/ready"
+                        android:layout_width="55dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/right_jungle_status"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="20sp"
+                        android:textAllCaps="false"
+                        android:contentDescription="@string/main_text"
+                        android:textColor="@android:color/white"
+                        android:textAlignment="center" android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"/>
+                <ImageButton
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/flash"
+                        android:id="@+id/right_jungle_button"
+                        android:padding="0dp"
+                        android:contentDescription="@string/main_button"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:contextClickable="false" android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"/>
+            </LinearLayout>
 
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="26dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/jungle_layout"
@@ -166,58 +202,72 @@
                 android:layout_marginStart="8dp"
                 android:id="@+id/mid_lane_layout" app:layout_constraintBottom_toTopOf="@id/bottom_lane_layout"
                 app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent">
-            <TextView
-                    android:text="@string/ready"
-                    android:layout_width="55dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/left_mid_lane_status"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="20sp"
-                    android:textAllCaps="false"
-                    android:contentDescription="@string/main_text"
-                    android:textColor="@android:color/white" android:layout_marginStart="10dp"
-                    android:textAlignment="center"/>
-            <ImageButton
-                    android:layout_width="35dp"
-                    android:layout_height="36dp"
-                    android:scaleType="centerCrop"
-                    android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/flash"
-                    android:id="@+id/left_mid_lane_button"
-                    android:padding="0dp"
-                    android:layout_marginEnd="10dp"
-                    android:contentDescription="@string/main_button"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:contextClickable="false" android:layout_marginStart="30dp"/>
-            <TextView
-                    android:text="@string/ready"
-                    android:layout_width="55dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/right_mid_lane_status"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="20sp"
-                    android:textAllCaps="false"
-                    android:contentDescription="@string/main_text"
-                    android:textColor="@android:color/white"
-                    android:layout_marginStart="50dp" android:textAlignment="center"/>
-            <ImageButton
-                    android:layout_width="35dp"
-                    android:layout_height="36dp"
-                    android:scaleType="centerCrop"
-                    android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/ignite"
-                    android:id="@+id/right_mid_lane_button"
-                    android:padding="0dp"
-                    android:contentDescription="@string/main_button"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:contextClickable="false" android:layout_marginStart="30dp"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent" android:id="@+id/left_mid_layout">
+                <TextView
+                        android:text="@string/ready"
+                        android:layout_width="55dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/left_mid_lane_status"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="20sp"
+                        android:textAllCaps="false"
+                        android:contentDescription="@string/main_text"
+                        android:textColor="@android:color/white" android:layout_marginStart="10dp"
+                        android:textAlignment="center" android:layout_marginTop="10dp"/>
+                <ImageButton
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/flash"
+                        android:id="@+id/left_mid_lane_button"
+                        android:padding="0dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/main_button"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:contextClickable="false" android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="205dp"
+                    android:layout_height="match_parent" android:layout_marginStart="20dp"
+                    android:id="@+id/right_mid_layout">
+                <TextView
+                        android:text="@string/ready"
+                        android:layout_width="55dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/right_mid_lane_status"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="20sp"
+                        android:textAllCaps="false"
+                        android:contentDescription="@string/main_text"
+                        android:textColor="@android:color/white"
+                        android:layout_marginStart="20dp" android:textAlignment="center"
+                        android:layout_marginTop="10dp"/>
+                <ImageButton
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/ignite"
+                        android:id="@+id/right_mid_lane_button"
+                        android:padding="0dp"
+                        android:contentDescription="@string/main_button"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:contextClickable="false" android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"/>
+            </LinearLayout>
 
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="26dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/mid_lane_layout"
@@ -225,58 +275,72 @@
                 android:layout_marginStart="8dp"
                 android:id="@+id/bottom_lane_layout" app:layout_constraintBottom_toTopOf="@id/support_layout"
                 app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent">
-            <TextView
-                    android:text="@string/ready"
-                    android:layout_width="55dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/left_bottom_lane_status"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="20sp"
-                    android:textAllCaps="false"
-                    android:contentDescription="@string/main_text"
-                    android:textColor="@android:color/white" android:layout_marginStart="10dp"
-                    android:textAlignment="center"/>
-            <ImageButton
-                    android:layout_width="35dp"
-                    android:layout_height="36dp"
-                    android:scaleType="centerCrop"
-                    android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/flash"
-                    android:id="@+id/left_bottom_lane_button"
-                    android:contentDescription="@string/main_button"
-                    android:padding="0dp"
-                    android:layout_marginEnd="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:contextClickable="false" android:layout_marginStart="30dp"/>
-            <TextView
-                    android:text="@string/ready"
-                    android:layout_width="55dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/right_bottom_lane_status"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="20sp"
-                    android:textAllCaps="false"
-                    android:contentDescription="@string/main_text"
-                    android:textColor="@android:color/white"
-                    android:layout_marginStart="50dp" android:textAlignment="center"/>
-            <ImageButton
-                    android:layout_width="35dp"
-                    android:layout_height="36dp"
-                    android:scaleType="centerCrop"
-                    android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/heal"
-                    android:id="@+id/right_bottom_lane_button"
-                    android:contentDescription="@string/main_button"
-                    android:padding="0dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:contextClickable="false" android:layout_marginStart="30dp"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent" android:id="@+id/left_bottom_layout">
+                <TextView
+                        android:text="@string/ready"
+                        android:layout_width="55dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/left_bottom_lane_status"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="20sp"
+                        android:textAllCaps="false"
+                        android:contentDescription="@string/main_text"
+                        android:textColor="@android:color/white" android:layout_marginStart="10dp"
+                        android:textAlignment="center" android:layout_marginTop="10dp"/>
+                <ImageButton
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/flash"
+                        android:id="@+id/left_bottom_lane_button"
+                        android:contentDescription="@string/main_button"
+                        android:padding="0dp"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:contextClickable="false" android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="205dp"
+                    android:layout_height="match_parent" android:layout_marginStart="20dp"
+                    android:id="@+id/right_bottom_layout">
+                <TextView
+                        android:text="@string/ready"
+                        android:layout_width="55dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/right_bottom_lane_status"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="20sp"
+                        android:textAllCaps="false"
+                        android:contentDescription="@string/main_text"
+                        android:textColor="@android:color/white"
+                        android:layout_marginStart="20dp" android:textAlignment="center"
+                        android:layout_marginTop="10dp"/>
+                <ImageButton
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/heal"
+                        android:id="@+id/right_bottom_lane_button"
+                        android:contentDescription="@string/main_button"
+                        android:padding="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:contextClickable="false" android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"/>
+            </LinearLayout>
 
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="26dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/bottom_lane_layout"
@@ -284,51 +348,65 @@
                 android:layout_marginStart="8dp"
                 android:id="@+id/support_layout" app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent" app:layout_constraintBottom_toBottomOf="parent">
-            <TextView
-                    android:text="@string/ready"
-                    android:layout_width="55dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/left_support_status"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="20sp"
-                    android:textAllCaps="false"
-                    android:contentDescription="@string/main_text"
-                    android:textColor="@android:color/white" android:layout_marginStart="10dp"
-                    android:textAlignment="center"/>
-            <ImageButton
-                    android:layout_width="35dp"
-                    android:layout_height="36dp"
-                    android:scaleType="centerCrop"
-                    android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/flash"
-                    android:id="@+id/left_support_button"
-                    android:contentDescription="@string/main_button"
-                    android:padding="0dp"
-                    android:layout_marginEnd="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:contextClickable="false" android:layout_marginStart="30dp"/>
-            <TextView
-                    android:text="@string/ready"
-                    android:layout_width="55dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/right_support_status"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="20sp"
-                    android:textAllCaps="false"
-                    android:contentDescription="@string/main_text"
-                    android:textColor="@android:color/white"
-                    android:layout_marginStart="50dp" android:textAlignment="center"/>
-            <ImageButton
-                    android:layout_width="35dp"
-                    android:layout_height="36dp"
-                    android:scaleType="centerCrop"
-                    android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/exhaust"
-                    android:id="@+id/right_support_button"
-                    android:contentDescription="@string/main_button"
-                    android:padding="0dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:contextClickable="false" android:layout_marginStart="30dp"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent" android:id="@+id/left_support_layout">
+                <TextView
+                        android:text="@string/ready"
+                        android:layout_width="55dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/left_support_status"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="20sp"
+                        android:textAllCaps="false"
+                        android:contentDescription="@string/main_text"
+                        android:textColor="@android:color/white" android:layout_marginStart="10dp"
+                        android:textAlignment="center" android:layout_marginTop="10dp"/>
+                <ImageButton
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/flash"
+                        android:id="@+id/left_support_button"
+                        android:contentDescription="@string/main_button"
+                        android:padding="0dp"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:contextClickable="false" android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="205dp"
+                    android:layout_height="match_parent" android:layout_marginStart="20dp"
+                    android:id="@+id/right_support_layout">
+                <TextView
+                        android:text="@string/ready"
+                        android:layout_width="55dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/right_support_status"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="20sp"
+                        android:textAllCaps="false"
+                        android:contentDescription="@string/main_text"
+                        android:textColor="@android:color/white"
+                        android:layout_marginStart="20dp" android:textAlignment="center"
+                        android:layout_marginTop="10dp"/>
+                <ImageButton
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/exhaust"
+                        android:id="@+id/right_support_button"
+                        android:contentDescription="@string/main_button"
+                        android:padding="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:contextClickable="false" android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"/>
+            </LinearLayout>
 
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>
@@ -348,4 +426,10 @@
                 android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="@id/menu_layout" android:textSize="25sp"/>
     </android.support.constraint.ConstraintLayout>
+    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                          android:id="@+id/guideline" app:layout_constraintGuide_begin="20dp"
+                                          android:orientation="vertical"/>
+    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                          android:id="@+id/guideline2" app:layout_constraintGuide_begin="20dp"
+                                          android:orientation="vertical"/>
 </android.support.constraint.ConstraintLayout>

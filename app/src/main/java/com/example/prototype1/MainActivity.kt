@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
 
 
@@ -60,6 +61,16 @@ class MainActivity : AppCompatActivity() {
 
         //create variables for all imagebutton and textview
 
+        val rightTopAreaClickable = findViewById<LinearLayout>(R.id.right_top_layout)
+        val leftTopAreaClickable = findViewById<LinearLayout>(R.id.left_top_layout)
+        val rightJungleAreaClickable = findViewById<LinearLayout>(R.id.right_jungle_layout)
+        val leftJungleAreaClickable = findViewById<LinearLayout>(R.id.left_jungle_layout)
+        val rightMiddleAreaClickable = findViewById<LinearLayout>(R.id.right_mid_layout)
+        val leftMiddleAreaClickable = findViewById<LinearLayout>(R.id.left_mid_layout)
+        val rightBottomAreaClickable = findViewById<LinearLayout>(R.id.right_bottom_layout)
+        val leftBottomAreaClickable = findViewById<LinearLayout>(R.id.left_bottom_layout)
+        val rightSupportAreaClickable = findViewById<LinearLayout>(R.id.right_support_layout)
+        val leftSupportAreaClickable = findViewById<LinearLayout>(R.id.left_support_layout)
         val rightTopLaneButton = findViewById<ImageButton>(R.id.right_top_lane_button)
         val rightTopLaneStatus = findViewById<TextView>(R.id.right_top_lane_status)
         val leftTopLaneButton = findViewById<ImageButton>(R.id.left_top_lane_button)
@@ -83,7 +94,7 @@ class MainActivity : AppCompatActivity() {
         val resetButton = findViewById<TextView>(R.id.reset_text)
 
         //button listener
-        rightTopLaneButton.setOnClickListener {
+        rightTopAreaClickable.setOnClickListener {
             if (rightTopButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[rightTopButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
@@ -103,27 +114,7 @@ class MainActivity : AppCompatActivity() {
                 rightTopButtonIsClicked = !rightTopButtonIsClicked
             }
         }
-        rightTopLaneStatus.setOnClickListener{
-            if (rightTopButtonIsClicked) {
-                object: CountDownTimer(buttonCooldowns[rightTopButtonType]!! * 1000,1000){
-                    override fun onTick(millisUntilFinished: Long) {
-                        val secondsRemaining = millisUntilFinished / 1000
-                        val minutesRemaining = secondsRemaining / 60
-                        val timeRemainingInSeconds = secondsRemaining % 60
-                        val secondsAsStr = timeRemainingInSeconds.toString()
-                        rightTopLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
-                    }
-                    override fun onFinish() {
-                        rightTopLaneStatus.setText(getString(R.string.ready))
-                        rightTopLaneButton.setColorFilter(null)
-                        rightTopButtonIsClicked = !rightTopButtonIsClicked
-                    }
-                }.start()
-                rightTopLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                rightTopButtonIsClicked = !rightTopButtonIsClicked
-            }
-        }
-        leftTopLaneButton.setOnClickListener {
+        leftTopAreaClickable.setOnClickListener {
             if (lefTopButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[leftTopButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
@@ -143,27 +134,7 @@ class MainActivity : AppCompatActivity() {
                 lefTopButtonIsClicked = !lefTopButtonIsClicked
             }
         }
-        leftTopLaneStatus.setOnClickListener{
-            if (lefTopButtonIsClicked) {
-                object: CountDownTimer(buttonCooldowns[leftTopButtonType]!! * 1000,1000){
-                    override fun onTick(millisUntilFinished: Long) {
-                        val secondsRemaining = millisUntilFinished / 1000
-                        val minutesRemaining = secondsRemaining / 60
-                        val timeRemainingInSeconds = secondsRemaining % 60
-                        val secondsAsStr = timeRemainingInSeconds.toString()
-                        leftTopLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
-                    }
-                    override fun onFinish() {
-                        leftTopLaneStatus.setText(getString(R.string.ready))
-                        leftTopLaneButton.setColorFilter(null)
-                        lefTopButtonIsClicked = !lefTopButtonIsClicked
-                    }
-                }.start()
-                leftTopLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                lefTopButtonIsClicked = !lefTopButtonIsClicked
-            }
-        }
-        rightJungleButton.setOnClickListener {
+        rightJungleAreaClickable.setOnClickListener {
             if (rightJungleButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[rightJungleButtonType]!! * 1000,1000) {
                     override fun onTick(millisUntilFinished: Long) {
@@ -183,27 +154,7 @@ class MainActivity : AppCompatActivity() {
                 rightJungleButtonIsClicked = !rightJungleButtonIsClicked
             }
         }
-        rightJungleStatus.setOnClickListener{
-            if (rightJungleButtonIsClicked) {
-                object: CountDownTimer(buttonCooldowns[rightJungleButtonType]!! * 1000,1000) {
-                    override fun onTick(millisUntilFinished: Long) {
-                        val secondsRemaining = millisUntilFinished / 1000
-                        val minutesRemaining = secondsRemaining / 60
-                        val timeRemainingInSeconds = secondsRemaining % 60
-                        val secondsAsStr = timeRemainingInSeconds.toString()
-                        rightJungleStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
-                    }
-                    override fun onFinish() {
-                        rightJungleStatus.setText(getString(R.string.ready))
-                        rightJungleButton.setColorFilter(null)
-                        rightJungleButtonIsClicked = !rightJungleButtonIsClicked
-                    }
-                }.start()
-                rightJungleButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                rightJungleButtonIsClicked = !rightJungleButtonIsClicked
-            }
-        }
-        leftJungleButton.setOnClickListener {
+        leftJungleAreaClickable.setOnClickListener {
             if (leftJungleButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[leftJungleButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
@@ -223,27 +174,7 @@ class MainActivity : AppCompatActivity() {
                 leftJungleButtonIsClicked = !leftJungleButtonIsClicked
             }
         }
-        leftJungleStatus.setOnClickListener {
-            if (leftJungleButtonIsClicked) {
-                object: CountDownTimer(buttonCooldowns[leftJungleButtonType]!! * 1000,1000){
-                    override fun onTick(millisUntilFinished: Long) {
-                        val secondsRemaining = millisUntilFinished / 1000
-                        val minutesRemaining = secondsRemaining / 60
-                        val timeRemainingInSeconds = secondsRemaining % 60
-                        val secondsAsStr = timeRemainingInSeconds.toString()
-                        leftJungleStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
-                    }
-                    override fun onFinish() {
-                        leftJungleStatus.setText(getString(R.string.ready))
-                        leftJungleButton.setColorFilter(null)
-                        leftJungleButtonIsClicked = !leftJungleButtonIsClicked
-                    }
-                }.start()
-                leftJungleButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                leftJungleButtonIsClicked = !leftJungleButtonIsClicked
-            }
-        }
-        rightMidLaneButton.setOnClickListener {
+        rightMiddleAreaClickable.setOnClickListener {
             if (rightMidButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[rightMidButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
@@ -263,27 +194,7 @@ class MainActivity : AppCompatActivity() {
                 rightMidButtonIsClicked = !rightMidButtonIsClicked
             }
         }
-        rightMidLaneStatus.setOnClickListener {
-            if (rightMidButtonIsClicked) {
-                object: CountDownTimer(buttonCooldowns[rightMidButtonType]!! * 1000,1000){
-                    override fun onTick(millisUntilFinished: Long) {
-                        val secondsRemaining = millisUntilFinished / 1000
-                        val minutesRemaining = secondsRemaining / 60
-                        val timeRemainingInSeconds = secondsRemaining % 60
-                        val secondsAsStr = timeRemainingInSeconds.toString()
-                        rightMidLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
-                    }
-                    override fun onFinish() {
-                        rightMidLaneStatus.setText(getString(R.string.ready))
-                        rightMidLaneButton.setColorFilter(null)
-                        rightMidButtonIsClicked = !rightMidButtonIsClicked
-                    }
-                }.start()
-                rightMidLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                rightMidButtonIsClicked = !rightMidButtonIsClicked
-            }
-        }
-        leftMidLaneButton.setOnClickListener {
+        leftMiddleAreaClickable.setOnClickListener {
             if (leftMidButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[leftMidButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
@@ -303,27 +214,7 @@ class MainActivity : AppCompatActivity() {
                 leftMidButtonIsClicked = !leftMidButtonIsClicked
             }
         }
-        leftMidLaneStatus.setOnClickListener {
-            if (leftMidButtonIsClicked) {
-                object: CountDownTimer(buttonCooldowns[leftMidButtonType]!! * 1000,1000){
-                    override fun onTick(millisUntilFinished: Long) {
-                        val secondsRemaining = millisUntilFinished / 1000
-                        val minutesRemaining = secondsRemaining / 60
-                        val timeRemainingInSeconds = secondsRemaining % 60
-                        val secondsAsStr = timeRemainingInSeconds.toString()
-                        leftMidLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
-                    }
-                    override fun onFinish() {
-                        leftMidLaneStatus.setText(getString(R.string.ready))
-                        leftMidLaneButton.setColorFilter(null)
-                        leftMidButtonIsClicked = !leftMidButtonIsClicked
-                    }
-                }.start()
-                leftMidLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                leftMidButtonIsClicked = !leftMidButtonIsClicked
-            }
-        }
-        rightBottomLaneButton.setOnClickListener {
+        rightBottomAreaClickable.setOnClickListener {
             if (rightBottomButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[rightBottomButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
@@ -343,27 +234,7 @@ class MainActivity : AppCompatActivity() {
                 rightBottomButtonIsClicked = !rightBottomButtonIsClicked
             }
         }
-        rightBottomLaneStatus.setOnClickListener {
-            if (rightBottomButtonIsClicked) {
-                object: CountDownTimer(buttonCooldowns[rightBottomButtonType]!! * 1000,1000){
-                    override fun onTick(millisUntilFinished: Long) {
-                        val secondsRemaining = millisUntilFinished / 1000
-                        val minutesRemaining = secondsRemaining / 60
-                        val timeRemainingInSeconds = secondsRemaining % 60
-                        val secondsAsStr = timeRemainingInSeconds.toString()
-                        rightBottomLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
-                    }
-                    override fun onFinish() {
-                        rightBottomLaneStatus.setText(getString(R.string.ready))
-                        rightBottomLaneButton.setColorFilter(null)
-                        rightBottomButtonIsClicked = !rightBottomButtonIsClicked
-                    }
-                }.start()
-                rightBottomLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                rightBottomButtonIsClicked = !rightBottomButtonIsClicked
-            }
-        }
-        leftBottomLaneButton.setOnClickListener {
+        leftBottomAreaClickable.setOnClickListener {
             if (leftBottomButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[leftBottomButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
@@ -383,27 +254,7 @@ class MainActivity : AppCompatActivity() {
                 leftBottomButtonIsClicked = !leftBottomButtonIsClicked
             }
         }
-        leftBottomLaneStatus.setOnClickListener {
-            if (leftBottomButtonIsClicked) {
-                object: CountDownTimer(buttonCooldowns[leftBottomButtonType]!! * 1000,1000){
-                    override fun onTick(millisUntilFinished: Long) {
-                        val secondsRemaining = millisUntilFinished / 1000
-                        val minutesRemaining = secondsRemaining / 60
-                        val timeRemainingInSeconds = secondsRemaining % 60
-                        val secondsAsStr = timeRemainingInSeconds.toString()
-                        leftBottomLaneStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
-                    }
-                    override fun onFinish() {
-                        leftBottomLaneStatus.setText(getString(R.string.ready))
-                        leftBottomLaneButton.setColorFilter(null)
-                        leftBottomButtonIsClicked = !leftBottomButtonIsClicked
-                    }
-                }.start()
-                leftBottomLaneButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                leftBottomButtonIsClicked = !leftBottomButtonIsClicked
-            }
-        }
-        rightSupportButton.setOnClickListener {
+        rightSupportAreaClickable.setOnClickListener {
             if (rightSupportButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[rightSupportButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
@@ -423,47 +274,7 @@ class MainActivity : AppCompatActivity() {
                 rightSupportButtonIsClicked = !rightSupportButtonIsClicked
             }
         }
-        rightSupportStatus.setOnClickListener {
-            if (rightSupportButtonIsClicked) {
-                object: CountDownTimer(buttonCooldowns[rightSupportButtonType]!! * 1000,1000){
-                    override fun onTick(millisUntilFinished: Long) {
-                        val secondsRemaining = millisUntilFinished / 1000
-                        val minutesRemaining = secondsRemaining / 60
-                        val timeRemainingInSeconds = secondsRemaining % 60
-                        val secondsAsStr = timeRemainingInSeconds.toString()
-                        rightSupportStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
-                    }
-                    override fun onFinish() {
-                        rightSupportStatus.setText(getString(R.string.ready))
-                        rightSupportButton.setColorFilter(null)
-                        rightSupportButtonIsClicked = !rightSupportButtonIsClicked
-                    }
-                }.start()
-                rightSupportButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                rightSupportButtonIsClicked = !rightSupportButtonIsClicked
-            }
-        }
-        leftSupportButton.setOnClickListener {
-            if (leftSupportButtonIsClicked) {
-                object: CountDownTimer(buttonCooldowns[leftSupportButtonType]!! * 1000,1000){
-                    override fun onTick(millisUntilFinished: Long) {
-                        val secondsRemaining = millisUntilFinished / 1000
-                        val minutesRemaining = secondsRemaining / 60
-                        val timeRemainingInSeconds = secondsRemaining % 60
-                        val secondsAsStr = timeRemainingInSeconds.toString()
-                        leftSupportStatus.text = "$minutesRemaining:${if(secondsAsStr.length == 2)secondsAsStr else "0" +secondsAsStr}"
-                    }
-                    override fun onFinish() {
-                        leftSupportStatus.setText(getString(R.string.ready))
-                        leftSupportButton.setColorFilter(null)
-                        leftSupportButtonIsClicked = !leftSupportButtonIsClicked
-                    }
-                }.start()
-                leftSupportButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-                leftSupportButtonIsClicked = !leftSupportButtonIsClicked
-            }
-        }
-        leftSupportStatus.setOnClickListener {
+        leftSupportAreaClickable.setOnClickListener {
             if (leftSupportButtonIsClicked) {
                 object: CountDownTimer(buttonCooldowns[leftSupportButtonType]!! * 1000,1000){
                     override fun onTick(millisUntilFinished: Long) {
