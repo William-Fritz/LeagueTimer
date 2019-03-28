@@ -8,16 +8,22 @@ import android.os.CountDownTimer
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var timer: CountDownTimer
+
+    //create variables for back confirmation
+    private var backPressedTime: Long = 0
+    private var resetPressedTime: Long = 0
+    private var backToast:Toast? = null
+    private var resetToast:Toast? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         //create variables for button check
 
@@ -295,8 +301,28 @@ class MainActivity : AppCompatActivity() {
             }
         }
         resetButton.setOnClickListener {
-            recreate()
+            if(resetPressedTime.plus(2000) > System.currentTimeMillis()){
+               resetToast?.cancel()
+               recreate()
+               return@setOnClickListener
+            }else{
+               resetToast = Toast.makeText(baseContext, "Press again to reset", Toast.LENGTH_SHORT)
+               resetToast?.show()
+            }
+            resetPressedTime = System.currentTimeMillis()
         }
+
+    }
+    override fun onBackPressed() {
+        if ((backPressedTime.plus(2000)) > System.currentTimeMillis()) {
+            backToast?.cancel()
+            super.onBackPressed()
+            return
+        }else{
+            backToast = Toast.makeText(baseContext, "Press back again to exit", Toast.LENGTH_SHORT)
+            backToast?.show()
+        }
+        backPressedTime = System.currentTimeMillis()
     }
 }
 
