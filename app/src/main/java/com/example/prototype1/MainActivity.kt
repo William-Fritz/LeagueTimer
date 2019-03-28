@@ -301,7 +301,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         resetButton.setOnClickListener {
-            if(resetPressedTime.plus(2000) > System.currentTimeMillis()){
+            if(resetPressedTime.plus(1500) > System.currentTimeMillis()){
                resetToast?.cancel()
                recreate()
                return@setOnClickListener
@@ -314,7 +314,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     override fun onBackPressed() {
-        if ((backPressedTime.plus(2000)) > System.currentTimeMillis()) {
+        if ((backPressedTime.plus(1500)) > System.currentTimeMillis()) {
             backToast?.cancel()
             super.onBackPressed()
             return
