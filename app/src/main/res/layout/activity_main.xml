@@ -56,6 +56,8 @@
                     app:layout_constraintStart_toStartOf="@id/top_lane_layout"
                     app:layout_constraintEnd_toStartOf="@id/right_top_layout"
                     app:layout_constraintTop_toTopOf="@id/top_lane_layout"
+                    android:clickable="true"
+                    android:focusable="true"
             >
                 <TextView
                         android:text="@string/ready"
@@ -80,7 +82,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         android:contentDescription="@string/main_button"
                         android:contextClickable="false" android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"/>
+                        android:layout_marginTop="10dp"
+                        android:clickable="false"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
@@ -89,7 +92,9 @@
                     app:layout_constraintBottom_toBottomOf="@id/top_lane_layout"
                     app:layout_constraintEnd_toEndOf="@id/top_lane_layout"
                     app:layout_constraintTop_toTopOf="@id/top_lane_layout"
-                    android:id="@+id/right_top_layout" android:layout_marginStart="20dp">
+                    android:id="@+id/right_top_layout" android:layout_marginStart="20dp"
+                    android:clickable="true"
+                    android:focusable="true">
                 <TextView
                         android:text="@string/ready"
                         android:layout_width="55dp"
@@ -133,6 +138,8 @@
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_height="match_parent" android:layout_width="155dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:id="@+id/left_jungle_layout">
                 <TextView
                         android:text="@string/ready"
@@ -161,7 +168,10 @@
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
-                    android:layout_height="match_parent" android:layout_width="205dp" android:layout_marginStart="20dp"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="205dp" android:layout_marginStart="20dp"
                     android:id="@+id/right_jungle_layout">
                 <TextView
                         android:text="@string/ready"
@@ -205,6 +215,8 @@
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="155dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:layout_height="match_parent" android:id="@+id/left_mid_layout">
                 <TextView
                         android:text="@string/ready"
@@ -234,7 +246,10 @@
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="205dp"
-                    android:layout_height="match_parent" android:layout_marginStart="20dp"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginStart="20dp"
                     android:id="@+id/right_mid_layout">
                 <TextView
                         android:text="@string/ready"
@@ -278,6 +293,8 @@
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="155dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:layout_height="match_parent" android:id="@+id/left_bottom_layout">
                 <TextView
                         android:text="@string/ready"
@@ -307,7 +324,10 @@
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="205dp"
-                    android:layout_height="match_parent" android:layout_marginStart="20dp"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginStart="20dp"
                     android:id="@+id/right_bottom_layout">
                 <TextView
                         android:text="@string/ready"
@@ -351,6 +371,8 @@
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="155dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:layout_height="match_parent" android:id="@+id/left_support_layout">
                 <TextView
                         android:text="@string/ready"
@@ -380,7 +402,10 @@
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="205dp"
-                    android:layout_height="match_parent" android:layout_marginStart="20dp"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginStart="20dp"
                     android:id="@+id/right_support_layout">
                 <TextView
                         android:text="@string/ready"
@@ -413,7 +438,8 @@
     <android.support.constraint.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="0dp" android:id="@+id/menu_layout"
-            app:layout_constraintTop_toBottomOf="@id/main_layout" app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/main_layout"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
@@ -426,10 +452,4 @@
                 android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="@id/menu_layout" android:textSize="25sp"/>
     </android.support.constraint.ConstraintLayout>
-    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                          android:id="@+id/guideline" app:layout_constraintGuide_begin="20dp"
-                                          android:orientation="vertical"/>
-    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                          android:id="@+id/guideline2" app:layout_constraintGuide_begin="20dp"
-                                          android:orientation="vertical"/>
 </android.support.constraint.ConstraintLayout>
