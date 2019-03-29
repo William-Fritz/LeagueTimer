@@ -308,7 +308,7 @@ class MainActivity : AppCompatActivity() {
                return@setOnClickListener
             }else{
                resetToast = Toast.makeText(baseContext, "Press again to reset", Toast.LENGTH_SHORT)
-               resetToast?.setGravity(Gravity.CENTER_VERTICAL,0,350)
+               resetToast?.setGravity(Gravity.BOTTOM, 0 ,130)
                resetToast?.show()
             }
             resetPressedTime = System.currentTimeMillis()
