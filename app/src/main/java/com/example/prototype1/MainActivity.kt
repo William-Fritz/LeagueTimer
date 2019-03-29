@@ -5,6 +5,7 @@ import android.graphics.PorterDuff
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.Gravity
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -307,6 +308,7 @@ class MainActivity : AppCompatActivity() {
                return@setOnClickListener
             }else{
                resetToast = Toast.makeText(baseContext, "Press again to reset", Toast.LENGTH_SHORT)
+               resetToast?.setGravity(Gravity.CENTER_VERTICAL,0,350)
                resetToast?.show()
             }
             resetPressedTime = System.currentTimeMillis()
