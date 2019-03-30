@@ -5,19 +5,28 @@ import android.graphics.PorterDuff
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.DisplayMetrics
+import android.util.Log
+import android.view.Gravity
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var timer: CountDownTimer
+
+    //create variables for back confirmation
+    private var backPressedTime: Long = 0
+    private var resetPressedTime: Long = 0
+    private var backToast:Toast? = null
+    private var resetToast:Toast? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         //create variables for button check
 
@@ -295,8 +304,37 @@ class MainActivity : AppCompatActivity() {
             }
         }
         resetButton.setOnClickListener {
-            recreate()
+            if(resetPressedTime.plus(1500) > System.currentTimeMillis()){
+               resetToast?.cancel()
+               recreate()
+               return@setOnClickListener
+            }else{
+               resetToast = Toast.makeText(baseContext, "Press again to reset", Toast.LENGTH_SHORT)
+               resetToast?.setGravity(Gravity.BOTTOM, 0, getToastHeight())
+               resetToast?.show()
+            }
+            resetPressedTime = System.currentTimeMillis()
         }
+
+    }
+    override fun onBackPressed() {
+        if ((backPressedTime.plus(1500)) > System.currentTimeMillis()) {
+            backToast?.cancel()
+            super.onBackPressed()
+            return
+        }else{
+            backToast = Toast.makeText(baseContext, "Press back again to exit", Toast.LENGTH_SHORT)
+            backToast?.setGravity(Gravity.BOTTOM, 0, getToastHeight())
+            backToast?.show()
+        }
+        backPressedTime = System.currentTimeMillis()
+    }
+
+    fun getToastHeight(): Int {
+        var display = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(display)
+        var toastHeight = 1.0 * 0.69 * menu_layout.height * display.heightPixels/background_layout.height
+        return toastHeight.toInt()
     }
 }
 
