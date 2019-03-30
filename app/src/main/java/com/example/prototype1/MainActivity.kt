@@ -5,12 +5,14 @@ import android.graphics.PorterDuff
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.DisplayMetrics
+import android.util.Log
 import android.view.Gravity
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -308,7 +310,7 @@ class MainActivity : AppCompatActivity() {
                return@setOnClickListener
             }else{
                resetToast = Toast.makeText(baseContext, "Press again to reset", Toast.LENGTH_SHORT)
-               resetToast?.setGravity(Gravity.BOTTOM, 0 ,130)
+               resetToast?.setGravity(Gravity.BOTTOM, 0, getToastHeight())
                resetToast?.show()
             }
             resetPressedTime = System.currentTimeMillis()
@@ -322,9 +324,17 @@ class MainActivity : AppCompatActivity() {
             return
         }else{
             backToast = Toast.makeText(baseContext, "Press back again to exit", Toast.LENGTH_SHORT)
+            backToast?.setGravity(Gravity.BOTTOM, 0, getToastHeight())
             backToast?.show()
         }
         backPressedTime = System.currentTimeMillis()
+    }
+
+    fun getToastHeight(): Int {
+        var display = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(display)
+        var toastHeight = 1.0 * 0.69 * menu_layout.height * display.heightPixels/background_layout.height
+        return toastHeight.toInt()
     }
 }
 
