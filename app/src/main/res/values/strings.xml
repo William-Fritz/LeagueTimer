@@ -6,4 +6,6 @@
     <string name="main_text">This is the text for summoners status</string>
     <string name="header_text">LEAGUE TIMER</string>
     <string name="footer_text">RESET</string>
+    <string name="welcome">Welcome, Summoner</string>
+    <string name="logo">Main logo Image</string>
 </resources>
