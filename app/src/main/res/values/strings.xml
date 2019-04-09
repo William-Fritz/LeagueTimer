@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Prototype1</string>
+    <string name="app_name">League Timer</string>
     <string name="ready">Ready</string>
     <string name="cooldown">05:00</string>
     <string name="main_button">This is the Button to start the timer</string>
