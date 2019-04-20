@@ -112,10 +112,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //create variables for all imagebutton and textview
         val resetButton = findViewById<TextView>(R.id.reset_text)
-
-        //button listener
 
         layoutClickables.forEach { (name, id) ->
             val clickable = findViewById<LinearLayout>(id)
@@ -140,7 +137,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun startTimer(button : String) {
         if (!isButtonClicked[button]!!){
-            Log.i("start timer", "$button || ${isButtonClicked[button]}")
             createTimerAndUpdateButtonViews(button)
         }
     }
