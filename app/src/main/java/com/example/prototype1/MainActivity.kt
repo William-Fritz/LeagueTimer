@@ -1,13 +1,11 @@
 package com.example.prototype1
 
-import android.content.IntentSender
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.Gravity
 import android.widget.ImageButton
 import android.widget.LinearLayout
@@ -25,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     private var backToast:Toast? = null
     private var resetToast:Toast? = null
 
-    // layout clickables
     private val layoutClickables: HashMap<String, Int> = hashMapOf(
         "top right" to R.id.right_top_layout,
         "top left" to R.id.left_top_layout,
@@ -39,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         "support left" to R.id.left_support_layout
     )
 
-    // button click state
     private var isButtonClicked: HashMap<String, Boolean> = hashMapOf(
         "top right" to false,
         "top left" to false,
@@ -53,7 +49,6 @@ class MainActivity : AppCompatActivity() {
         "support left" to false
     )
 
-    // text IDs
     private val textIDs: HashMap<String, Int> = hashMapOf(
         "top right" to R.id.right_top_lane_status,
         "top left" to R.id.left_top_lane_status,
@@ -67,7 +62,6 @@ class MainActivity : AppCompatActivity() {
         "support left" to R.id.left_support_status
     )
 
-    // image button IDs
     private val imageButtonIDs: HashMap<String, Int> = hashMapOf(
         "top right" to R.id.right_top_lane_button,
         "top left" to R.id.left_top_lane_button,
@@ -81,7 +75,6 @@ class MainActivity : AppCompatActivity() {
         "support left" to R.id.left_support_button
     )
 
-    // button type
     private var buttonTypes: HashMap<String, String> = hashMapOf(
         "top right" to "flash",
         "top left" to "teleport",
@@ -95,7 +88,6 @@ class MainActivity : AppCompatActivity() {
         "support left" to "flash"
     )
 
-    // button cooldown
     private val buttonCooldowns: HashMap<String, Long> = hashMapOf(
         "flash" to 300L,
         "heal" to 240L,
@@ -117,7 +109,11 @@ class MainActivity : AppCompatActivity() {
         layoutClickables.forEach { (name, id) ->
             val clickable = findViewById<LinearLayout>(id)
             clickable.setOnClickListener {
-                startTimer(name)
+                if (!isButtonClicked[name]!!){
+                    createAndStartTimer(name)
+                }
+                setButtonColorToGray(name)
+                changeButtonClickState(name)
             }
         }
         resetButton.setOnClickListener {
@@ -135,13 +131,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun startTimer(button : String) {
-        if (!isButtonClicked[button]!!){
-            createTimerAndUpdateButtonViews(button)
-        }
-    }
-
-    fun createTimerAndUpdateButtonViews(button : String) {
+    fun createAndStartTimer(button : String) {
         object : CountDownTimer(buttonCooldowns[buttonTypes[button]]!! * 1000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 updateButtonText(button, millisUntilFinished)
@@ -151,7 +141,15 @@ class MainActivity : AppCompatActivity() {
                 resetViews(button)
             }
         }.start()
-        disableButtonAndChangeButtonClickState(button)
+    }
+
+    fun setButtonColorToGray(button : String) {
+        val imageButton = findViewById<ImageButton>(imageButtonIDs[button]!!)
+        imageButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+    }
+
+    fun changeButtonClickState(button : String) {
+        isButtonClicked[button] = true
     }
 
     fun updateButtonText(button : String, millisUntilFinished : Long){
@@ -179,20 +177,12 @@ class MainActivity : AppCompatActivity() {
         isButtonClicked[button] = false
     }
 
-    fun disableButtonAndChangeButtonClickState(button : String) {
-        val imageButton = findViewById<ImageButton>(imageButtonIDs[button]!!)
-
-        imageButton.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
-        isButtonClicked[button] = true
-    }
-
     fun getToastHeight(): Int {
         var display = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(display)
         var toastHeight = 1.0 * 0.69 * menu_layout.height * display.heightPixels/background_layout.height
         return toastHeight.toInt()
     }
-
 
     override fun onBackPressed() {
         if ((backPressedTime.plus(1500)) > System.currentTimeMillis()) {
