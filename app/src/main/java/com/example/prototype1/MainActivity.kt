@@ -138,7 +138,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                resetViews(button)
+                setTextToReady(button)
+                removeButtonColorFilter(button)
+                changeButtonClickState(button)
             }
         }.start()
     }
@@ -149,7 +151,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun changeButtonClickState(button : String) {
-        isButtonClicked[button] = true
+        isButtonClicked[button] = !isButtonClicked[button]!!
     }
 
     fun updateButtonText(button : String, millisUntilFinished : Long){
@@ -168,13 +170,14 @@ class MainActivity : AppCompatActivity() {
         return "$displayMinutes:$displaySeconds"
     }
 
-    fun resetViews(button : String) {
+    fun setTextToReady(button : String) {
         val text = findViewById<TextView>(textIDs[button]!!)
-        val imageButton = findViewById<ImageButton>(imageButtonIDs[button]!!)
-
         text.text = "Ready"
+    }
+
+    fun removeButtonColorFilter(button : String) {
+        val imageButton = findViewById<ImageButton>(imageButtonIDs[button]!!)
         imageButton.colorFilter = null
-        isButtonClicked[button] = false
     }
 
     fun getToastHeight(): Int {
